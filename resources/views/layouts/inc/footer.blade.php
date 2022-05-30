@@ -31,7 +31,7 @@
                         </div>
                         <div class="icon-content">
                             <h4 class="dz-tilte text-white">Contact Us</h4>
-                            <p><a href="../../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3851565e57785f55595154165b5755">[email&#160;protected]</a> <br>+91 874 8974 874</p>
+                            <p><a href="#" class="__cf_email__">{{ env('EMAIL') }}</a> <br>{{ env('PHONE') }}</p>
                         </div>
                     </div>
                 </div>
@@ -69,12 +69,12 @@
                     <div class="widget widget_services">
                         <h4 class="footer-title">Our Links</h4>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="services.html">Case Studies</a></li>
-                            <li><a href="blog-grid.html">News</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Testimonies</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Store</a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,42 +98,7 @@
                             <li>
                                 <div class="dz-post-thum dz-img-effect">
                                     <span data-exthumbimage="images/gallery/pic1.jpg" data-src="images/gallery/pic1.jpg" class="lightimg" title="Image 1 Title will come here">
-                                        <img src="images/gallery/pic1.jpg" alt="">
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dz-post-thum dz-img-effect">
-                                    <span data-exthumbimage="images/gallery/pic2.jpg" data-src="images/gallery/pic2.jpg" class="lightimg" title="Image 2 Title will come here">
-                                        <img src="images/gallery/pic2.jpg" alt="">
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dz-post-thum dz-img-effect">
-                                    <span data-exthumbimage="images/gallery/pic3.jpg" data-src="images/gallery/pic3.jpg" class="lightimg" title="Image 3 Title will come here">
-                                        <img src="images/gallery/pic3.jpg" alt="">
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dz-post-thum dz-img-effect">
-                                    <span data-exthumbimage="images/gallery/pic4.jpg" data-src="images/gallery/pic4.jpg" class="lightimg" title="Image 4 Title will come here">
-                                        <img src="images/gallery/pic4.jpg" alt="">
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dz-post-thum dz-img-effect">
-                                    <span data-exthumbimage="images/gallery/pic5.jpg" data-src="images/gallery/pic5.jpg" class="lightimg" title="Image 5 Title will come here">
-                                        <img src="images/gallery/pic5.jpg" alt="">
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dz-post-thum dz-img-effect">
-                                    <span data-exthumbimage="images/gallery/pic6.jpg" data-src="images/gallery/pic6.jpg" class="lightimg" title="Image 6 Title will come here">
-                                        <img src="images/gallery/pic6.jpg" alt="">
+                                        <img src="{{ asset('assets/images/gallery/pic1.jpg') }}" alt="">
                                     </span>
                                 </div>
                             </li>
@@ -146,7 +111,7 @@
     <!-- footer bottom part -->
     <div class="footer-bottom">
         <div class="container">
-            <span class="copyright-text">Copyright © 2022 <a href="https://dexignzone.com/" target="_blank">DexignZone</a>. All rights reserved.</span>
+            <span class="copyright-text">Copyright © {{ date('Y') }} <a href="/"> {{ env('APP_NAME') }} </a>. All rights reserved.</span>
         </div>
     </div>
 </footer>
