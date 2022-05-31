@@ -44,13 +44,13 @@
                         </div>
                         <p class="m-b30">Integer vitae eleifend risus, in ultricies nulla. Sed euismod molestie massa.</p>
 
-                        <form class="dzSubscribe style-2 m-b30" action="https://consultzone.dexignzone.com/xhtml/assets/script/mailchamp.php" method="post">
-                            <div class="dzSubscribeMsg text-white"></div>
+                        <form class="dzSubscribe style-2 m-b30" method="post">
+                            <div class="dzSubscribeMsg"></div>
                             <div class="form-group">
                                 <div class="input-group mb-0">
-                                    <input name="dzEmail" required="required" type="email" class="form-control shadow" placeholder="Email Address...">
+                                    <input class="form-control shadow" placeholder="Email Address...">
                                     <div class="input-group-addon">
-                                        <button name="submit" value="Submit" type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                                        <button name="submit" value="Submit" type="submit" class="btn btn-primary submit_newsletter"><i class="fas fa-paper-plane"></i></button>
                                     </div>
                                 </div>
                             </div>

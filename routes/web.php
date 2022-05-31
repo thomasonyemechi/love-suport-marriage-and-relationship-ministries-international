@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () { return view('about'); });
+Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
+Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );

@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/switcher/switcher.css') }}">
 	<link rel="stylesheet" class="skin" href="{{ asset('assets/css/skin/skin-3.css') }}">
 
+    <script src="{{ asset('assets/js/general.js') }}"></script>
+
 
 
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}">
@@ -69,8 +71,47 @@
     <script src="{{ asset('assets/vendor/paroller/skrollr.min.js') }}"></script><!-- PAROLLER -->
     <script src='www.google.com/recaptcha/api.js'></script> <!-- Google API For Recaptcha  -->
     <script src="{{ asset('assets/js/dz.carousel.js') }}"></script><!-- OWL-CAROUSEL -->
-    <script src="{{ asset('assets/js/dz.ajax.js') }}"></script><!-- AJAX -->
     <script src="{{ asset('assets/js/custom.js') }}"></script><!-- CUSTOM JS -->
+
+    <script>
+        $(function () {
+
+            //
+            $('.dzSubscribe').on('submit', function(e) {
+                e.preventDefault();
+                form = $(this);
+                email = $(form).find('input').val();
+                btn = $(form).find('button');
+                er = $(form).find('.dzSubscribeMsg')
+                if(!validateEmail(email)){
+                    er.html('Please enter a valid email address'); er.addClass('text-danger')
+                    setTimeout(() => { er.html(``) }, 1500); return;
+                }
+
+                $.ajax({
+                    method: 'POST',
+                    url: '/newsletter/add',
+                    data: {  "_token" : `{{ csrf_token() }}`, email: email },
+                    beforeSend:() => {
+                        btn.attr('disabled', 'disabled')
+                        btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
+                    }
+                }).done(function(res) {
+                    btn.removeAttr('disabled')
+                    btn.html('<i class="fas fa-paper-plane"></i>')
+                    er.html(res.message); er.removeClass('text-danger'); er.addClass('text-success')
+                    setTimeout(() => { er.html(``) }, 1500);
+                }).fail(function(res) {
+                    btn.removeAttr('disabled')
+                    btn.html('<i class="fas fa-paper-plane"></i>')
+
+                    er.html(concatError(res.responseJSON)); er.removeClass('text-success'); er.addClass('text-danger')
+                    setTimeout(() => { er.html(``) }, 1500);
+                })
+
+            })
+        })
+    </script>
 
 
 
