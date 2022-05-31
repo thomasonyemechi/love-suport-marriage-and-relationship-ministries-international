@@ -6,7 +6,7 @@
             <div class="container clearfix">
                 <!-- Website Logo -->
                 <div class="logo-header mostion logo-dark">
-                    <a href="index.html"><img src="images/logo-3.png" alt=""></a>
+                    <a href="index.html"><img src="{{ asset('assets/images/logo-3.png') }} " alt=""></a>
                 </div>
                 <!-- Nav Toggle Button -->
                 <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
 
                 <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
                     <div class="logo-header logo-dark">
-                        <a href="index.html"><img src="images/logo-3.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/logo-3.png') }}" alt=""></a>
                     </div>
                     <ul class="nav navbar-nav navbar navbar-left">
                         <li><a href="/">Home</a></li>
