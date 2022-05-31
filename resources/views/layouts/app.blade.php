@@ -40,6 +40,7 @@
     </div> --}}
     <div class="page-wraper">
         @include('layouts.inc.header')
+        @include('layouts.inc.alert')
 
         <div class="page-content bg-white">
             @yield('page_content')
