@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\TestimonyController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ Route::get('/contact', function () { return view('contact'); });
 Route::get('/gallery', function () { return view('gallery'); });
 Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
 Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );
+Route::post('/sendcontactmessage', [ContactController::class, 'sendContactMessage'] );
+
 
 
 Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function (){

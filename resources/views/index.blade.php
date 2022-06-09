@@ -136,7 +136,10 @@
         <div class="testimonial-wrapper-2">
             <div class="swiper-container testimonial-swiper-3">
                 <div class="swiper-wrapper">
-                    @foreach (App\Models\Testimony::orderby('id', 'desc')->limit(5)->get() as $test)
+                    @php
+                        $testimonies = App\Models\Testimony::orderby('id', 'desc')->limit(7)->get();
+                    @endphp
+                    @foreach ($testimonies as $test)
                         <div class="swiper-slide">
                             <div class="testimonial-3">
                                 <div class="testimonial-pic">
@@ -159,36 +162,13 @@
             <div class="btn-next swiper-button-next-test"><i class="flaticon-right-arrow"></i></div>
             <div class="swiper-container testimonial-swiper-thumb">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="dz-media">
-                            <img src="images/testimonials/pic1.jpg" alt="">
+                    @foreach ($testimonies as $test)
+                        <div class="swiper-slide">
+                            <div class="dz-media">
+                                <img src="{{ asset('assets/images/testimonials/'.$test->photo) }}" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-media">
-                            <img src="images/testimonials/pic2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-media">
-                            <img src="images/testimonials/pic3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-media">
-                            <img src="images/testimonials/pic4.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-media">
-                            <img src="images/testimonials/pic5.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-media">
-                            <img src="images/testimonials/pic6.jpg" alt="">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
