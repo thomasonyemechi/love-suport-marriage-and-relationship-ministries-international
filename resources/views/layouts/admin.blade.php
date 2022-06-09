@@ -21,6 +21,8 @@
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 
 
@@ -90,6 +92,7 @@
         <button class="scroltop icon-up" type="button"><i class="fas fa-arrow-up"></i></button>
 
     </div>
+
 
 
 </body>

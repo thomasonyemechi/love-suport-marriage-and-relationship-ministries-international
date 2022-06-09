@@ -9,7 +9,7 @@ class Testimony extends Model
 {
     use HasFactory;
 
-    protected $fillabe = [
+    protected $fillable = [
         'name', 'testimony', 'photo', 'status'
     ];
 }

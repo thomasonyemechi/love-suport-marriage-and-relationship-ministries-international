@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Validator;
 class TestimonyController extends Controller
 {
 
+    function deleteTestimony($id)
+    {
+        Testimony::where('id', $id)->delete();
+        return back()->with('success', 'Testimony has been deleted');
+    }
+
     function updateTestimonyStatus($id)
     {
         $testimony = Testimony::find($id);
@@ -23,8 +29,10 @@ class TestimonyController extends Controller
         $val = Validator::make($request->all(), [
             'name' => 'required|string|min:3|max:50',
             'testimony' => 'required|string|min:3',
-            'photo' => 'image'
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+        if($val->fails()) { return back()->with('error', do_er($val->errors()->all()) );  }
 
         $testimony = Testimony::find($request->testimony_id);
         $name = $testimony->photo; $oldname = $testimony->photo;
@@ -33,7 +41,7 @@ class TestimonyController extends Controller
             $extension = $file->getClientOriginalExtension();
             $name = $request->name.'_'.time().rand().'.'.$extension;
             move_uploaded_file($file, 'assets/images/testimonials/'.$name);
-            unlink('assets/images/testimonials/'.$oldname);
+            if($oldname != 'no_image.png') { unlink('assets/images/testimonials/'.$oldname); }
         }
 
         $testimony->update([
@@ -52,10 +60,12 @@ class TestimonyController extends Controller
         $val = Validator::make($request->all(), [
             'name' => 'required|string|min:3|max:50',
             'testimony' => 'required|string|min:3',
-            'photo' => 'image'
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $name = '';
+        if($val->fails()) { return back()->with('error', do_er($val->errors()->all()) );  }
+
+        $name = 'no_image.png';
         if($request->hasFile('photo')) {
             $file = $request->file('photo');
             $extension = $file->getClientOriginalExtension();

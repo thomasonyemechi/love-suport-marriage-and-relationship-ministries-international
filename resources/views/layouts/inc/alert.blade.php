@@ -16,7 +16,7 @@
         }, 3000);
     </script>
     <div id="refresh" class="alert bg-danger" style="position:fixed; top:50px; right:15px; z-index:10000">
-        <i class="icon fa fa-ban text-white">  {!! session::get('error') !!}  </i>
+        <i class="text-white">  {!! session::get('error') !!}  </i>
 
         </div>
 

@@ -132,107 +132,27 @@
     <div class="container">
         <div class="section-head text-center style-2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
             <h2>What Our Client Say’s</h2>
-            <p>Maecenas at massa sit amet sem porta rutrum. Nam ullamcorper mauris eu risus malesuada ultricies. Pellentesque pretium viverra felis, ac laoreet dui.  </p>
         </div>
         <div class="testimonial-wrapper-2">
             <div class="swiper-container testimonial-swiper-3">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-3">
-                            <div class="testimonial-pic">
-                                <img src="images/testimonials/pic1.jpg" alt="">
-                            </div>
-                            <div class="testimonial-info">
-                                <div class="info">
-                                    <h4 class="testimonial-name">Richard Hartisona</h4>
-                                    <span class="testimonial-position text-primary">CEO & Founder</span>
+                    @foreach (App\Models\Testimony::orderby('id', 'desc')->limit(5)->get() as $test)
+                        <div class="swiper-slide">
+                            <div class="testimonial-3">
+                                <div class="testimonial-pic">
+                                    <img src="{{ asset('assets/images/testimonials/'.$test->photo) }}" alt="">
                                 </div>
-                                <div class="testimonial-text">
-                                    <p>“ Maecenas finibus eros purus, sit amet condimentum arcu ullamcorper sed. In eu gravida libero. Praesent bibendum rutrum quam, lobortis vehicula nibh placerat at. Vivamus pretium ultricies nisl non eleifend. Aliquam eget metus ullamcorper, auctor leo id, ornare risus. Curabitur vel fermentum neque, eu laoreet odio ”.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-3">
-                            <div class="testimonial-pic">
-                                <img src="images/testimonials/pic2.jpg" alt="">
-                            </div>
-                            <div class="testimonial-info">
-                                <div class="info">
-                                    <h4 class="testimonial-name">Richard Hartisona</h4>
-                                    <span class="testimonial-position text-primary">CEO & Founder</span>
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>“ Maecenas finibus eros purus, sit amet condimentum arcu ullamcorper sed. In eu gravida libero. Praesent bibendum rutrum quam, lobortis vehicula nibh placerat at. Vivamus pretium ultricies nisl non eleifend. Aliquam eget metus ullamcorper, auctor leo id, ornare risus. Curabitur vel fermentum neque, eu laoreet odio ”.</p>
+                                <div class="testimonial-info">
+                                    <div class="info">
+                                        <h4 class="testimonial-name">{{$test->name}}</h4>
+                                    </div>
+                                    <div class="testimonial-text">
+                                        <p> {{$test->testimony}} </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-3">
-                            <div class="testimonial-pic">
-                                <img src="images/testimonials/pic3.jpg" alt="">
-                            </div>
-                            <div class="testimonial-info">
-                                <div class="info">
-                                    <h4 class="testimonial-name">Richard Hartisona</h4>
-                                    <span class="testimonial-position text-primary">CEO & Founder</span>
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>“ Maecenas finibus eros purus, sit amet condimentum arcu ullamcorper sed. In eu gravida libero. Praesent bibendum rutrum quam, lobortis vehicula nibh placerat at. Vivamus pretium ultricies nisl non eleifend. Aliquam eget metus ullamcorper, auctor leo id, ornare risus. Curabitur vel fermentum neque, eu laoreet odio ”.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-3">
-                            <div class="testimonial-pic">
-                                <img src="images/testimonials/pic4.jpg" alt="">
-                            </div>
-                            <div class="testimonial-info">
-                                <div class="info">
-                                    <h4 class="testimonial-name">Richard Hartisona</h4>
-                                    <span class="testimonial-position text-primary">CEO & Founder</span>
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>“ Maecenas finibus eros purus, sit amet condimentum arcu ullamcorper sed. In eu gravida libero. Praesent bibendum rutrum quam, lobortis vehicula nibh placerat at. Vivamus pretium ultricies nisl non eleifend. Aliquam eget metus ullamcorper, auctor leo id, ornare risus. Curabitur vel fermentum neque, eu laoreet odio ”.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-3">
-                            <div class="testimonial-pic">
-                                <img src="images/testimonials/pic5.jpg" alt="">
-                            </div>
-                            <div class="testimonial-info">
-                                <div class="info">
-                                    <h4 class="testimonial-name">Richard Hartisona</h4>
-                                    <span class="testimonial-position text-primary">CEO & Founder</span>
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>“ Maecenas finibus eros purus, sit amet condimentum arcu ullamcorper sed. In eu gravida libero. Praesent bibendum rutrum quam, lobortis vehicula nibh placerat at. Vivamus pretium ultricies nisl non eleifend. Aliquam eget metus ullamcorper, auctor leo id, ornare risus. Curabitur vel fermentum neque, eu laoreet odio ”.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-3">
-                            <div class="testimonial-pic">
-                                <img src="images/testimonials/pic6.jpg" alt="">
-                            </div>
-                            <div class="testimonial-info">
-                                <div class="info">
-                                    <h4 class="testimonial-name">Richard Hartisona</h4>
-                                    <span class="testimonial-position text-primary">CEO & Founder</span>
-                                </div>
-                                <div class="testimonial-text">
-                                    <p>“ Maecenas finibus eros purus, sit amet condimentum arcu ullamcorper sed. In eu gravida libero. Praesent bibendum rutrum quam, lobortis vehicula nibh placerat at. Vivamus pretium ultricies nisl non eleifend. Aliquam eget metus ullamcorper, auctor leo id, ornare risus. Curabitur vel fermentum neque, eu laoreet odio ”.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="btn-prev swiper-button-prev-test"><i class="flaticon-left-arrow"></i></div>
@@ -293,52 +213,11 @@
                     <div class="swiper-slide">
                         <div class="dz-team style-3">
                             <div class="dz-media">
-                                <img src="images/team/pic1.jpg" alt="">
+                                <img src="{{ asset('assets/images/team/pic1.jpg') }}" alt="">
                             </div>
-                            <ul class="team-social">
-                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                            </ul>
                             <div class="dz-content">
                                 <div>
-                                    <h4 class="dz-name"><a href="team.html">Sarah Albert</a></h4>
-                                    <h6 class="dz-position">Employe</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-team style-3">
-                            <div class="dz-media">
-                                <img src="images/team/pic2.jpg" alt="">
-                            </div>
-                            <ul class="team-social">
-                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                            </ul>
-                            <div class="dz-content">
-                                <div>
-                                    <h4 class="dz-name"><a href="team.html">Sarah Albert</a></h4>
-                                    <h6 class="dz-position">Employe</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="dz-team style-3">
-                            <div class="dz-media">
-                                <img src="images/team/pic3.jpg" alt="">
-                            </div>
-                            <ul class="team-social">
-                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                            </ul>
-                            <div class="dz-content">
-                                <div>
-                                    <h4 class="dz-name"><a href="team.html">Sarah Albert</a></h4>
+                                    <h4 class="dz-name"><a href="#">Sarah Albert</a></h4>
                                     <h6 class="dz-position">Employe</h6>
                                 </div>
                             </div>

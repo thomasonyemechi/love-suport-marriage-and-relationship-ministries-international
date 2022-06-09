@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\TestimonyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,15 @@ Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] )
 Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function (){
     Route::get('/', function () { return view('admin.index'); });
     Route::get('/testimonial', function () { return view('admin.testimonial'); });
+
+
+
+
+
+    Route::post('/testimonial/add_new', [TestimonyController::class, 'addTestimony']);
+    Route::post('/testimonial/edit', [TestimonyController::class, 'editTestimony']);
+    Route::get('/testimonial/delete/{id}', [TestimonyController::class, 'deleteTestimony']);
+
+
 
 });
