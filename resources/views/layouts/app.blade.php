@@ -67,6 +67,7 @@
     <script src="{{ asset('assets/vendor/lightgallery/js/lightgallery-all.min.js') }}"></script><!-- LIGHTGALLERY -->
     <script src="{{ asset('assets/vendor/counter/waypoints-min.js') }}"></script><!-- WAYPOINTS JS -->
     <script src="{{ asset('assets/vendor/counter/counterup.min.js') }}"></script><!-- COUNTERUP JS -->
+    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/paroller/skrollr.min.js') }}"></script><!-- PAROLLER -->
     <script src='www.google.com/recaptcha/api.js'></script> <!-- Google API For Recaptcha  -->
     <script src="{{ asset('assets/js/dz.carousel.js') }}"></script><!-- OWL-CAROUSEL -->

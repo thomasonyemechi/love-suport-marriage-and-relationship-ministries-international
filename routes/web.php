@@ -23,3 +23,10 @@ Route::get('/contact', function () { return view('contact'); });
 Route::get('/gallery', function () { return view('gallery'); });
 Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
 Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );
+
+
+Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function (){
+    Route::get('/', function () { return view('admin.index'); });
+    Route::get('/testimonial', function () { return view('admin.testimonial'); });
+
+});
