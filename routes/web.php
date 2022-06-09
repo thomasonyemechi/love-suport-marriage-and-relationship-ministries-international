@@ -19,5 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () { return view('about'); });
+Route::get('/contact', function () { return view('contact'); });
+Route::get('/gallery', function () { return view('gallery'); });
 Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
 Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );

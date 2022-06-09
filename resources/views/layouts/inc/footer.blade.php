@@ -40,7 +40,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-8">
                     <div class="widget widget_about p-r50 p-sm-r0">
                         <div class="footer-logo logo-white">
-                            <a href="index.html"><img src="images/logo-white-3.png" alt=""></a>
+                            <a href="index.html"><img src="{{ asset('assets/images/logo-white-3.png') }}" alt=""></a>
                         </div>
                         <p class="m-b30">Integer vitae eleifend risus, in ultricies nulla. Sed euismod molestie massa.</p>
 
