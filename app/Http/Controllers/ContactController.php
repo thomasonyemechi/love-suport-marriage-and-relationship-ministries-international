@@ -8,28 +8,48 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+
+    function deleteContactMessage(Request $request)
+    {
+        foreach($request->data as $msg_id) {
+            Contact::where('id', $msg_id)->delete();
+        }
+        return back()->with('success', count($request->data).' items has been deleted');
+    }
+
+
+
+    function seeContactMessage(Request $request)
+    {
+        foreach($request->data as $msg_id) {
+            Contact::where('id', $msg_id)->update([
+                'status' => 1
+            ]);
+        }
+        return back()->with('success', count($request->data).' items marked as seen');
+    }
+
+
     function sendContactMessage(Request $request)
     {
         $val = Validator::make($request->all(), [
-            'full_name' => 'required|string|min:3|max:50',
+            'name' => 'required|string|min:3|max:50',
             'email' => 'required|email',
             'phone' => 'required|string|max:30',
             'message' => 'required|string'
         ]);
 
-        if ($val->fails()){ return response(['errors'=>$val->errors()->all()], 422);}
+        if ($val->fails()){ return back()->with([ 'message' => $request->message, 'error' => do_er($val->errors()->all()) ]);}
 
         Contact::create([
-            'full_name' => $request->full_name,
+            'full_name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'message' => $request->message
         ]);
 
 
-        return response([
-            'message' => 'Your message have been sucessfully sent, we will reachout to you!'
-        ]);
+        return back()->with('success', 'Your message have been sucessfully sent, we will reachout to you!');
 
     }
 }

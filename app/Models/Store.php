@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class Store extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'full_name', 'phone', 'message', 'email', 'message', 'status'
+        'item', 'price', 'description', 'more', 'type', 'photo', 'url', 'main_url', 'on_del', 'status', 'snippet'
     ];
-
-
 }

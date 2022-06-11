@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/icheck-bootstrap.min.css') }}">
+
 
 
 
@@ -53,7 +55,7 @@
                                 <li><a href="/control/">Dashboard</a></li>
                                 <li class="sub-menu-down"><a href="javascript:void(0);">Store Management</a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Manage Store Items</a></li>
+                                        <li><a href="/control/store/">Manage Store Items</a></li>
                                         <li><a href="#">Item History</a></li>
                                         <li><a href="#">Sales History</a></li>
                                         <li><a href="#">Track Transaction</a></li>
@@ -65,6 +67,9 @@
                                         <li><a href="#">Newsletter</a></li>
                                         <li><a href="#">Search User</a></li>
                                         <li><a href="/control/testimonial">Testimonial</a></li>
+                                        <li><a href="/control/contact/messages">Contact Messages</a></li>
+
+
                                     </ul>
                                 </li>
                                 <li><a href="/">Back Home </a></li>

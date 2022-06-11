@@ -50,30 +50,30 @@
                     <h2 class="title">Get An Adviser</h2>
                     <p>{{env('APP_NAME_SHORT ')}} aims to help families build a strong family foundation. <br> Please complete the form on the right to connect with a member of our team.</p>
                 </div>
-                <form class="dz-form dzForm" method="POST">
+                <form class="dz-form dzForm" method="POST" action="/sendcontactmessage" >@csrf
                     <div class="row sp10">
                         <div class="col-lg-12">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="dzOther[first_name]" placeholder="Full Name">
+                                <input type="text" class="form-control" name="name" placeholder="Full Name">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="dzEmail" placeholder="Email Adress">
+                                <input type="email" class="form-control" name="email" placeholder="Email Adress">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="dzOther[phone_number]" placeholder="Phone No.">
+                                <input type="text" class="form-control" name="phone" placeholder="Phone No.">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <textarea name="dzMessage" rows="5" class="form-control" placeholder="Message"></textarea>
+                                <textarea name="message" rows="5" class="form-control" placeholder="Message"> {{ Session::get('message') }}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <button name="submit" type="submit" value="submit" class="btn btn-primary btn-rounded">SUBSCRIBE NOW</button>
+                            <button name="submit" type="submit" value="submit" class="btn btn-primary btn-rounded">Send Message!</button>
                         </div>
                     </div>
                 </form>
