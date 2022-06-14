@@ -10,6 +10,6 @@ class Store extends Model
     use HasFactory;
 
     protected $fillable = [
-        'item', 'price', 'description', 'more', 'type', 'photo', 'url', 'main_url', 'on_del', 'status', 'snippet'
+        'item', 'price', 'description', 'more', 'type', 'photo', 'url', 'main_url', 'on_del', 'status', 'snippet', 'slug'
     ];
 }

@@ -125,7 +125,7 @@
                                                     <td class="align-middle">{{ md($pro->created_at) }}</td>
                                                     <td class="align-middle">
                                                         <div class="d-flex">
-                                                            <a href="/control/store/delete/{{$pro->id}}" class="btn btn-danger btn-xs" onclick="return confirm('Item will be deleted')">
+                                                            <a href="#" class="btn btn-danger btn-xs" onclick="return confirm('Item will be deleted')">
                                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                                             </a>
                                                             <button class=" btn ms-2 btn-xs btn-info">

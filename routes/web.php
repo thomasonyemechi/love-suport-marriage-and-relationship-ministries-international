@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestimonyController;
+use App\Models\Store;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,10 +36,15 @@ Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function
     Route::get('/testimonial', function () { return view('admin.testimonial'); });
     Route::get('/contact/messages', function () { return view('admin.view_contact_messages'); });
     Route::get('/store/', function () { return view('admin.add_product'); });
-    
+    Route::get('/store/{slug}', function ($slug) {
+        $item = Store::where('slug', $slug)->first();
+        return view('admin.product', compact('item'));
+    });
+
 
 
     Route::post('/store/add_new', [StoreController::class, 'addItemToStore']);
+    Route::get('/store/delete/{id}', [StoreController::class, 'deleteStoreItem']);
 
     Route::post('/testimonial/add_new', [TestimonyController::class, 'addTestimony']);
     Route::post('/testimonial/edit', [TestimonyController::class, 'editTestimony']);

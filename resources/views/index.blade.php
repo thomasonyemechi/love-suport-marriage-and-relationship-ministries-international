@@ -137,7 +137,7 @@
             <div class="swiper-container testimonial-swiper-3">
                 <div class="swiper-wrapper">
                     @php
-                        $testimonies = App\Models\Testimony::orderby('id', 'desc')->limit(7)->get();
+                        $testimonies = App\Models\Testimony::inRandomOrder()->limit(7)->get();
                     @endphp
                     @foreach ($testimonies as $test)
                         <div class="swiper-slide">

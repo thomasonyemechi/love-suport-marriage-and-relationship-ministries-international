@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class StoreController extends Controller
 {
@@ -56,6 +57,7 @@ class StoreController extends Controller
 
 
         $item->update([
+            'slug' => Str::slug($request->item),
             'item' => $request->item,
             'price' => $request->price,
             'description' => $request->description,
@@ -77,7 +79,8 @@ class StoreController extends Controller
 
     function deleteStoreItem($id)
     {
-        return back()->with('Item has been deleted scuessfully');
+        Store::where('id', $id)->delete();
+        return back()->with('success','Item has been deleted scuessfully');
     }
 
 
@@ -124,6 +127,7 @@ class StoreController extends Controller
 
 
         Store::create([
+            'slug' => Str::slug($request->item),
             'item' => $request->item,
             'price' => $request->price,
             'description' => $request->description,
