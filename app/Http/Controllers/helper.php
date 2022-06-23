@@ -24,7 +24,7 @@
 
     function type($tp)
     {
-        $val = 'Text';
+        $val = 'PDF';
         if($tp == 1) { $val = 'Audio'; }
         elseif($tp == 2) { $val = 'Video'; }
 

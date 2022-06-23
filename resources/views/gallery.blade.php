@@ -89,12 +89,12 @@
 <div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/images/banner/bnr7.jpg') }}');">
     <div class="container">
         <div class="dz-bnr-inr-entry">
-            <h1>Contact Us</h1>
+            <h1>Gallery</h1>
             <!-- Breadcrumb Row -->
             <nav aria-label="breadcrumb" class="breadcrumb-row">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery </li>
                 </ul>
             </nav>
             <!-- Breadcrumb Row End -->

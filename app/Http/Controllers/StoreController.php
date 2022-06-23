@@ -10,6 +10,14 @@ use Illuminate\Support\Str;
 class StoreController extends Controller
 {
 
+    function fetchStoreItem()
+    {
+        $items = Store::orderby('id', 'desc')->paginate(100);
+        return response([
+            'data' => $items
+        ]);
+    }
+
     function editStoreItem(Request $request)
     {
         $val = Validator::make($request->all(), [
@@ -98,22 +106,21 @@ class StoreController extends Controller
             'file' => 'mimes:jpeg,png,jpg,gif,svg,pdf,mp3,mp4,docx'
         ]);
 
-        if ($val->fails()){ return response(['errors' => $val->errors()->all() ]);}
-
-
+        if ($val->fails()){ return response(['errors' => $val->errors()->all() ], 422);}
+        $slug = Str::slug($request->item);
 
 
         $photo = 'no_image.png';
         if($request->hasFile('photo')) {
             $img = $request->file('photo');
-            $photo = $request->item.'_img_'.time().rand().'.'.$img->getClientOriginalExtension();
+            $photo = $slug.'_img_'.time().rand().'.'.$img->getClientOriginalExtension();
             move_uploaded_file($img, 'assets/store/'.$photo);
         }
 
         $snippet = 'no_image.png';
         if($request->hasFile('snippet')) {
             $snip = $request->file('snippet');
-            $file = $request->item.'_snippet_'.time().rand().'.'.$snip->getClientOriginalExtension();
+            $file = $slug.'_snippet_'.time().rand().'.'.$snip->getClientOriginalExtension();
             move_uploaded_file($snip, 'assets/store/'.$file);
         }
 
@@ -121,13 +128,13 @@ class StoreController extends Controller
         $file = 'no_image.png';
         if($request->hasFile('file')) {
             $main = $request->file('file');
-            $file = $request->item.'_file_'.time().rand().'.'.$main->getClientOriginalExtension();
+            $file = $slug.'_file_'.time().rand().'.'.$main->getClientOriginalExtension();
             move_uploaded_file($main, 'assets/store/'.$file);
         }
 
 
         Store::create([
-            'slug' => Str::slug($request->item),
+            'slug' => $slug,
             'item' => $request->item,
             'price' => $request->price,
             'description' => $request->description,
@@ -141,10 +148,10 @@ class StoreController extends Controller
             'status' => 1
         ]);
 
-
-        return back()->with('error', 'Item has been added sucessfully');
-
-
+        return response([
+            'message' => 'Item has been added sucessfully'
+        ]);
+        // return back()->with('error', 'Item has been added sucessfully');
 
     }
 }

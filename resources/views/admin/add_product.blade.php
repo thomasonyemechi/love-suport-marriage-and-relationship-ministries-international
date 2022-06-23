@@ -91,9 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    @php
-                        $products = App\Models\Store::orderby('id', 'desc')->paginate(25);
-                    @endphp
+
                     <div class="col-md-8">
                         <div class="card card-secondary ">
                             <div class="card-header p-2">
@@ -114,33 +112,10 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody>
-                                            @foreach ($products as $pro)
-                                                <tr>
-                                                    <td class="align-middle">{{ $loop->iteration }}</td>
-                                                    <td class="align-middle">{{ $pro->item }}</td>
-                                                    <td class="align-middle">{{ money($pro->price) }}</td>
-                                                    <td class="align-middle">{{ type($pro->type) }}</td>
-                                                    <td class="align-middle">{{ delivery($pro->on_del) }}</td>
-                                                    <td class="align-middle">{{ md($pro->created_at) }}</td>
-                                                    <td class="align-middle">
-                                                        <div class="d-flex">
-                                                            <a href="/control/store/delete/{{$pro->id}}" class="btn btn-danger btn-xs" onclick="return confirm('Item will be deleted')">
-                                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                                            </a>
-                                                            <button class=" btn ms-2 btn-xs btn-info">
-                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                        <tbody class="item_body">
+
                                         </tbody>
                                     </table>
-                                </div>
-
-                                <div class="d-flex justify-content-center">
-                                    {{ $products->links('pagination::bootstrap-4') }}
                                 </div>
                             </div>
                         </div>
@@ -185,13 +160,54 @@
         </div>
     </div>
 
+
     <script>
         $(function() {
+            function fetchStoreItem()
+            {
+                $.ajax({
+                    method: 'get',
+                    url: '/control/get_item_list'
+                }).done(function(res) {
+                    tbody = $('.item_body')
+                    tbody.html('');
+
+                    res.data.data.map((item, index) => {
+                        console.log(item);
+                        tbody.append(`
+                            <tr>
+                                <td class="align-middle">${index+1}</td>
+                                <td class="align-middle">${item.item}</td>
+                                <td class="align-middle">${money(item.price)}</td>
+                                <td class="align-middle">${type(item.type)}</td>
+                                <td class="align-middle">${delivery(item.on_del)}</td>
+                                <td class="align-middle">${formatDate(item.created_at)}</td>
+                                <td class="align-middle">
+                                    <a href="/control/store/${item.slug}" class="btn btn-xs btn-info">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        `)
+                    })
+
+                    console.log(res);
+
+
+                }).fail(function(res) {
+                    salat('An error occured while trying to load your data, Try again by reloading this page', 1);
+                })
+            }
+
+            fetchStoreItem();
+
+
             $('#addProduct').on('submit', function(e) {
                 e.preventDefault()
                 data = $(this);
                 sbtn = $(data).find('button');
                 formData = new FormData(this);
+
                 $.ajax({
                     method: 'POST',
                     url: `/control/store/add_new`,
@@ -199,14 +215,16 @@
                     contentType: false,
                     processData: false,
                     beforeSend: () => {
-                        sbtn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> processing Request ');
+                        btn(sbtn, 'submit', 'before');
                     },
                 }).done(function(res) {
-                    console.log(res);
-                    alert('done')
+                    salat(res.message)
+                    btn(sbtn, 'submit', 'after');
+                    fetchStoreItem();
+                    $(this)[0].reset();
                 }).fail(function(res) {
-                    console.log(res);
-                    alert('Submission Failed Retry');
+                    concatError(res.responseJSON);
+                    btn(sbtn, 'submit', 'after');
                 })
             })
         })

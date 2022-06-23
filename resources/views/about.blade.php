@@ -30,33 +30,27 @@
                     <img src="{{ asset('assets/images/about/pic2.jpg') }}" class="ov-img" alt="">
                 </div>
             </div>
-            <div class="col-lg-6 m-b30">
+            <div class="col-lg-6 align-middle m-b30">
                 <div class="section-head style-2">
-                    <h2>Get To Know Your Relationship</h2>
-                    <p>In hac habitasse platea dictumst. Aliquam rutrum tellus massa, in pellentesque arcu vestibulum vehicula. Vivamus elementum turpis vel porttitor accumsan. Cras imperdiet velit lectus, id malesuada magna vulputate id. </p>
+                    <h4>About Life suppport christain counseling ministries</h4>
+                    <p>The life support christain counselling ministries started in the heart of the holy land (isreal) in  19996
+                        <br><br>
+                        Our mission as the name implies is to uitilze our professional skills to provide support, hope and direction to those experiencing emotional or relational difficulties.
+                        especially Africans in diaspora, who as a result of relocation to a diffent world and culture are faced with enormous challenge of maintaining the sancity of their marriage
+                        <br><br>
+                        We create awareness and provides research based information about the pproblem that the contemporary society is having on family and marriages
+
+                    </p>
                 </div>
 
-                <div class="row m-b20">
-                    <div class="col-sm-6">
-                        <ul class="wow fadeInUp list-check-4" data-wow-delay="2.0s">
-                            <li>Duis laoreet dui at eros  lacinia</li>
-                            <li>Quisque a justo libero</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6">
-                        <ul class="wow fadeInUp list-check-4" data-wow-delay="2.0s">
-                            <li>Curabitur non nibh</li>
-                            <li>Morbi finibus purus eget</li>
-                        </ul>
-                    </div>
-                </div>
+
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
-                    <a href="contact-us.html" class="btn btn-primary m-b15 btn-rounded">Contact Us</a>
+                    <a href="/contact" class="btn btn-primary m-b15 btn-rounded">Contact Us</a>
                     <div class="contact-user m-b15">
                         <img src="{{ asset('assets/images/contact/pic1.jpg') }}" alt="">
                         <div class="info">
                             <h4 class="num m-b0">+91 123 4567 891</h4>
-                            <span class="manage text-primary">Manager At ConsultZonea</span>
+                            <span class="manage text-primary"> Life Support Ministries</span>
                         </div>
                     </div>
                 </div>
@@ -66,84 +60,90 @@
 </section>
 
 
-<section class="bg-gray half-shape-top-w">
+<section class="bg-gray">
     <div class="container">
         <div class="counter-box">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="counter-style-3">
-                        <div class="counter-num text-primary">
-                            <span class="counter">35</span>
-                        </div>
-                        <span class="counter-text">Years Of<br>Experience</span>
-                    </div>
+            <div class="col-12 text-center style-2 wow mb-3 fadeInUp">
+                <h2>How To Support Our Ministry</h2>
+            </div>
+            <div class="row m-b20">
+                <div class="col-sm-6">
+                    <ul class="wow fadeInUp list-check-4" data-wow-delay="1.0s">
+                        <li>Become an active partner of the ministry by signing up</li>
+                        <li>Tell a freind and bring the friend along to our next family clinic </li>
+                        <li>Make a contribution, write a check today to life support Ministries</li>
+                        <li>By praying for the work of the minstry </li>
+
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="counter-style-3">
-                        <div class="counter-num text-primary">
-                            <span class="counter">50</span>+
-                        </div>
-                        <span class="counter-text">Happy To<br>Relationship</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="counter-style-3">
-                        <div class="counter-num text-primary">
-                            <span class="counter">70</span>+
-                        </div>
-                        <span class="counter-text">Cup Of<br>Coffee</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="counter-style-3">
-                        <div class="counter-num text-primary">
-                            <span class="counter">90</span>+
-                        </div>
-                        <span class="counter-text">Our Happy<br>Clients</span>
-                    </div>
+                <div class="col-sm-6">
+                    <ul class="wow fadeInUp list-check-4" data-wow-delay="1.0s">
+                        <li>Commit to suport us by making financial contributions to our zenith bank account number 1016342094 </li>
+                        <li>Buy one or more of our recorded CD's for yourself or as gift to another friend/couple</li>
+                        <li>Purchase one or more of our books: How to aviod marital failure or Living well and aging well</li>
+
+                 </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
 
 <section class="content-inner">
     <div class="container">
-        <div class="row about-bx8">
-            <div class="col-lg-6 align-self-center">
-                <div class="section-head style-2">
-                    <h2>Reasons Why We Are Best</h2>
-                    <p>Aliquam sem lorem, egestas sed sollicitudin in, tristique sit amet purus risus urna, fringilla sit amet pulvinar vitae, pellentesque ut ante onec pretium finibus fermentum raesent elit nibh, iaculis quis mattis in, tempus sed mauris.</p>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-sm-6">
-                        <div class="icon-bx-wraper m-b30">
-                            <div class="m-b20">
-                                <img src="{{ asset('assets/images/services/ico4.png') }}" alt="">
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title">The Best User Interface</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="icon-bx-wraper m-b30">
-                            <div class="m-b20">
-                                <img src="{{ asset('assets/images/services/ico5.png') }}" alt="">
-                            </div>
-                            <div class="icon-content">
-                                <h4 class="dz-title">Get The Best Advice Consultancy</h4>
-                            </div>
+        <div class="section-head text-center style-2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
+            <h2>Our Seminars</h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row" style="font-size: 13px">
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Create</h4>
+                            <p class="text-center">
+                                We create awareness <br> and provides research based information<br> about the  problem that the
+                                contemporary society is <br> having on family and marriages
+
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 m-b30">
-                <div class="dz-media">
-                    <img src="{{ asset('assets/images/about/pic3.jpg') }}" alt="">
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Restoration</h4>
+                            <p class="text-center">
+                               We network with other organization tha provides divorce recovery and greif support programs,
+                                which also deals with sexual addictions, for men and their wives.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Consultation</h4>
+                            <p class="text-center" >
+                                We have opportunity to work with a variety of churches and para church organozations to help
+                                strengthens their caring minstries and skills in pastoral <br> counselling
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Collaboration</h4>
+                            <p class="text-center">
+                                We work together with other organization ro incrase the impact and effectivenes of the services ooffered to the community through partnership arrangements
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>

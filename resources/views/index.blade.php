@@ -20,16 +20,11 @@
                 <div class="col-lg-6 col-md-7 col-sm-10">
                     <div class="banner-content">
                         <img src="{{ asset('assets/images/pattern/pattern1.png') }}" class="pattern-img" alt="">
-                        <h5 class="wow fadeInUp sub-title" data-wow-delay=".5s">Best Relationship Advisor</h5>
+                        <h5 class="wow fadeInUp sub-title" data-wow-delay=".5s">Relationship Support</h5>
                         <h1 class="wow fadeInUp m-b20" data-wow-delay="1s">We Help Make <span class="text-primary">Relationship</span></h1>
-                        <p 	class="wow fadeInUp m-b30" data-wow-delay="1.5s">Morbi pharetra fermentum facilisis. Aenean eleifend quam ante, at luctus turpis rhoncus quis. Quisque in est luctus, blandit.</p>
-                        <a href="about-us.html" class="wow fadeInUp m-r30 m-b20 btn btn-primary btn-rounded" data-wow-delay="2.5s">Read More</a>
-                        <div class="video-bx style-4 wow fadeInUp m-b20" data-wow-delay="2.5s" style="visibility: visible; animation-delay: 2.5s; animation-name: fadeInUp;">
-                            <a class="video-btn" href="https://www.youtube.com/watch?v=XKfgdkcIUxw">
-                                <span class="popup-youtube"><i class="fa fa-play"></i></span>
-                                <span class="text">Presentation</span>
-                            </a>
-                        </div>
+                        <p 	class="wow fadeInUp m-b30" data-wow-delay="1.5s">Our mission as the name implies is to uitilze our professional skills to provide support, hope and direction to those experiencing emotional or relational difficulties.</p>
+                        <a href="about" class="wow fadeInUp m-r30 m-b20 btn btn-primary btn-rounded" data-wow-delay="2.5s">Read More</a>
+
                     </div>
                 </div>
             </div>
@@ -131,7 +126,7 @@
 <section class="content-inner-1 bg-gray">
     <div class="container">
         <div class="section-head text-center style-2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
-            <h2>What Our Client Say’s</h2>
+            <h2>Testmonials</h2>
         </div>
         <div class="testimonial-wrapper-2">
             <div class="swiper-container testimonial-swiper-3">
@@ -154,6 +149,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     @endforeach
                 </div>
@@ -170,6 +166,67 @@
                         </div>
                     @endforeach
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content-inner">
+    <div class="container">
+        <div class="section-head text-center style-2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
+            <h2>Our Seminars</h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row" style="font-size: 13px">
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Create</h4>
+                            <p class="text-center">
+                                We create awareness <br> and provides research based information<br> about the  problem that the
+                                contemporary society is <br> having on family and marriages
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Restoration</h4>
+                            <p class="text-center">
+                               We network with other organization tha provides divorce recovery and greif support programs,
+                                which also deals with sexual addictions, for men and their wives.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Consultation</h4>
+                            <p class="text-center" >
+                                We have opportunity to work with a variety of churches and para church organozations to help
+                                strengthens their caring minstries and skills in pastoral <br> counselling
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 panel">
+                    <div class="dz-box style-2 m-b30">
+                        <div class="dz-info">
+                            <h4 class="title text-red text-center m-b10">Collaboration</h4>
+                            <p class="text-center">
+                                We work together with other organization ro incrase the impact and effectivenes of the services ooffered to the community through partnership arrangements
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -213,7 +270,7 @@
 <section class="content-inner">
     <div class="container">
         <div class="section-head text-center style-2 wow fadeInUp" data-wow-delay="1s">
-            <h2>Latest News Feed</h2>
+            <h2>Relationship Programs</h2>
             <p>Maecenas at massa sit amet sem porta rutrum. Nam ullamcorper mauris eu risus malesuada ultricies. Pellentesque pretium viverra felis, ac laoreet dui. </p>
         </div>
         <div class="row justify-content-center">

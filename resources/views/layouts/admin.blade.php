@@ -82,7 +82,11 @@
 
         @include('layouts.inc.alert')
 
+
+        <div class="littleAlert"></div>
+
         <div class="page-content bg-white">
+
             @yield('page_content')
         </div>
 

@@ -1,16 +1,17 @@
 @extends('layouts.admin')
 @section('page_title')
-    Store | {{ env('APP_NAME') }}
+    Store | {{$item->item}}
 @endsection
 @section('page_content')
-    <div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
+    <div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/store/'.$item->photo) }}');">
         <div class="container">
             <div class="dz-bnr-inr-entry">
                 <h1>Store</h1>
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:;">Admin</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Store</li>
+                        <li class="breadcrumb-item"><a href="javascript:;">Manage Store</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$item->item}}</li>
                     </ul>
                 </nav>
             </div>
@@ -24,30 +25,25 @@
                     <div class="col-md-4">
                         <div class="card card-secondary ">
                             <div class="card-header p-2">
-                                <h3 class="card-title">Add New Item</h3>
+                                <h3 class="card-title">Edit Item Details</h3>
                             </div>
                             <div class="card-body p-2">
-                                <ul>
-                                    @foreach ($errors as $er)
-                                    <li>{{$er}}</li>
-                                @endforeach
-                                </ul>
                                 <form class="row" id="addProduct" method="POST" enctype="multipart/form-data" >@csrf
                                     <div class="col-md-8 form-group">
                                         <label>Item Name <span class="text-danger">*</span> </label>
-                                        <input type="text" name="item" class="form-control" placeholder="Name Of Product">
+                                        <input type="text" name="item" value="{{$item->item}}" class="form-control" placeholder="Name Of Product">
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label>Item Price </label>
-                                        <input type="number" name="price" class="form-control" placeholder="price">
+                                        <input type="number" name="price" value="{{$item->price}}"" class="form-control" placeholder="price">
                                     </div>
                                     <div class="col-md-12 form-group">
                                         <label>Description</label>
-                                        <textarea name="description" class="form-control" rows="2"></textarea>
+                                        <textarea name="description" class="form-control" rows="2"> {{$item->description}}</textarea>
                                     </div>
                                     <div class="col-md-12 form-group">
                                         <label>Item Details</label>
-                                        <textarea name="details" class="form-control" rows="4"></textarea>
+                                        <textarea name="details" class="form-control" rows="4"> {{$item->more}} </textarea>
                                     </div>
 
 
@@ -91,13 +87,10 @@
                             </div>
                         </div>
                     </div>
-                    @php
-                        $products = App\Models\Store::orderby('id', 'desc')->paginate(25);
-                    @endphp
                     <div class="col-md-8">
                         <div class="card card-secondary ">
                             <div class="card-header p-2">
-                                <h3 class="card-title">Store Item List</h3>
+                                <h3 class="card-title">Purchase History</h3>
                             </div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
@@ -115,32 +108,12 @@
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($products as $pro)
-                                                <tr>
-                                                    <td class="align-middle">{{ $loop->iteration }}</td>
-                                                    <td class="align-middle">{{ $pro->item }}</td>
-                                                    <td class="align-middle">{{ money($pro->price) }}</td>
-                                                    <td class="align-middle">{{ type($pro->type) }}</td>
-                                                    <td class="align-middle">{{ delivery($pro->on_del) }}</td>
-                                                    <td class="align-middle">{{ md($pro->created_at) }}</td>
-                                                    <td class="align-middle">
-                                                        <div class="d-flex">
-                                                            <a href="#" class="btn btn-danger btn-xs" onclick="return confirm('Item will be deleted')">
-                                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                                            </a>
-                                                            <button class=" btn ms-2 btn-xs btn-info">
-                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    {{ $products->links('pagination::bootstrap-4') }}
+                                    {{-- {{ $products->links('pagination::bootstrap-4') }} --}}
                                 </div>
                             </div>
                         </div>

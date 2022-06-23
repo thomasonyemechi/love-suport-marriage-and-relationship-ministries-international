@@ -80,14 +80,13 @@
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-6 col-sm-5 col-6">
                     <div class="widget widget_services">
-                        <h4 class="footer-title">Other Services</h4>
+                        <h4 class="footer-title">Our Seminars</h4>
                         <ul>
-                            <li><a href="javascript:void(0);">Love & Relationship</a></li>
-                            <li><a href="javascript:void(0);">Plan Your Family</a></li>
-                            <li><a href="javascript:void(0);">Powerful Mindset</a></li>
-                            <li><a href="javascript:void(0);">Long Relationship</a></li>
-                            <li><a href="javascript:void(0);">Kids Relationship</a></li>
-                            <li><a href="javascript:void(0);">24x7 Support</a></li>
+                            <li><a href="javascript:void(0);">Awareness</a></li>
+                            <li><a href="javascript:void(0);">Restoration</a></li>
+                            <li><a href="javascript:void(0);">Prevention</a></li>
+                            <li><a href="javascript:void(0);">Consultation</a></li>
+                            <li><a href="javascript:void(0);">Colaboration</a></li>
                         </ul>
                     </div>
                 </div>
