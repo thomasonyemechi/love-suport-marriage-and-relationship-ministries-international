@@ -27,6 +27,7 @@ Route::get('/about', function () { return view('about'); });
 Route::get('/contact', function () { return view('contact'); });
 Route::get('/gallery', function () { return view('gallery'); });
 Route::get('/store', function () { return view('store'); });
+Route::get('/cart', function () { return view('cart'); });
 Route::get('/store/{slug}', function ($slug) { $item = Store::where('slug', $slug)->first();  return view('item', compact('item')); });
 Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
 Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );

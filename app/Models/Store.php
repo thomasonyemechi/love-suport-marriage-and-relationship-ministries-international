@@ -12,4 +12,9 @@ class Store extends Model
     protected $fillable = [
         'item', 'price', 'description', 'more', 'type', 'photo', 'url', 'main_url', 'on_del', 'status', 'snippet', 'slug'
     ];
+
+    function orders()
+    {
+        return $this->hasMany(Cart::class, 'item_id');
+    }
 }

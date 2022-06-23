@@ -57,6 +57,7 @@
         @include('layouts.inc.alert')
 
         <div class="page-content bg-white">
+            <div class="littleAlert"></div>
             @yield('page_content')
         </div>
 
