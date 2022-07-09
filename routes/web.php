@@ -33,6 +33,13 @@ Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
 Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );
 Route::post('/sendcontactmessage', [ContactController::class, 'sendContactMessage'] );
 Route::post('/add_item_to_cart', [OrderController::class, 'addItemCart'] );
+// Route::post('/checkout', [OrderController::class, 'startCheckOut'] );
+Route::post('/verify_transaction', [OrderController::class, 'verifyFlutterwaveTransaction'] );
+Route::get('/verify_transaction2/{trno}', [OrderController::class, 'verifyFlutterwaveTransaction2'] );
+Route::post('/checkout', [OrderController::class, 'processFlutterWave'] );
+Route::get('/cart/{user_id}/{track_id}', [OrderController::class, 'verifyPayment'] );
+Route::get('/flutterwave/callback', [OrderController::class, 'callback'] )->name('flutterwave-callback');
+
 
 
 Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function (){

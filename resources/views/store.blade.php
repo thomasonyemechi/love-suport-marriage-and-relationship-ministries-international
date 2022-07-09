@@ -27,32 +27,91 @@
 <section class="content-inner">
     <div class="container">
         <div class="row">
+            <h2>Books</h2>
             @php
-                $items = App\Models\Store::orderby('id', 'desc')->paginate(15)
+                $books = App\Models\Store::where(['type' => 3])->orderby('id', 'desc')->limit(6)->get();
             @endphp
 
-            @foreach ($items as $item)
+            @foreach ($books as $book)
                 <div class="col-lg-4 col-sm-6">
                     <div class="item-box m-b30">
                         <div class="item-img">
-                            <img class="simg" style="height: 450px" src="{{asset('assets/store/'.$item->photo) }}" alt="">
-                            <span class="badge bg-success">{{type($item->type)}}</span>
+                            <img class="simg" style="height: 450px" src="{{asset('assets/store/'.$book->photo) }}" alt="">
+                            <span class="badge bg-success">{{type($book->type)}}</span>
                             <div class="item-info-in">
                                 <ul>
                                     <li><a href="javascript:void(0);"><i class="ti-shopping-cart"></i></a></li>
-                                    <li><a href="/store/{{$item->slug}}"><i class="ti-eye"></i></a></li>
+                                    <li><a href="/store/{{$book->slug}}"><i class="ti-eye"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="item-info text-center">
-                            <h4 class="item-title"><a href="/store/{{$item->slug}}">{{$item->item}}</a></h4>
-                            <h6 class="item-price">{{money($item->price)}}</h6>
+                            <a class="video-title mb-0 pb-0" href="/store/{{$book->slug}}">{{$book->item}}</a>
+                            {{money($book->price)}}
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+
+        <div class="row">
+            <h2>Trending Videos</h2>
+            @php
+                $videos = App\Models\Store::where(['type' => 2])->orderby('id', 'desc')->limit(6)->get();
+            @endphp
+
+            @foreach ($videos as $vid)
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item-box m-b30">
+                        <div class="item-im videoitem" style="border-radius: 20px">
+                            <video style="width: 100%" controls>
+                                <source src="{{asset('assets/store/'.$vid->snippet) }}" type="video/mp4">
+                                {{-- <source src="mov_bbb.ogg" type="video/ogg"> --}}
+                                Your browser does not support HTML video.
+                              </video>
+                        </div>
+                        <div class="item-info text-center">
+                            <a class="video-title mb-0 pb-0" href="/store/{{$vid->slug}}">{{$vid->item}}</a>
+                             {{money($vid->price)}}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="row">
+            <h2>Audio Messages</h2>
+            @php
+                $audio = App\Models\Store::where(['type' => 1])->orderby('id', 'desc')->limit(6)->get();
+            @endphp
+
+            @foreach ($audio as $aud)
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item-box m-b30">
+                        <div class="item-im">
+                            <audio style="width: 100%" controls autoplay>
+                                <source src="{{asset('assets/store/perfect.mp3') }}" type="audio/mpeg">
+                                 Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="item-info text-center">
+                            <a class="video-title mb-0 pb-0" href="/store/{{$aud->slug}}">{{$aud->item}}</a>
+                            {{money($aud->price)}}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
     </div>
 </section>
 
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS -->
+
+<script>
+    $(function (){
+
+    })
+</script>
 @endsection

@@ -29,7 +29,9 @@ class NewsletterController extends Controller
             'email' => 'required|exists:newsetter,email'
         ]);
         if ($val->fails()){ return response(['errors'=>$val->errors()->all()], 422);}
-        Newsletter::where('email', $request->email)->delete();
+        Newsletter::where('email', $request->email)->update([
+            'status' => 0
+        ]);
 
         return response([
             'message' => 'Email has been removed from subscription list'

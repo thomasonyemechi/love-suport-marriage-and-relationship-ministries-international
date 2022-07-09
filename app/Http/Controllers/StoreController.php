@@ -120,8 +120,8 @@ class StoreController extends Controller
         $snippet = 'no_image.png';
         if($request->hasFile('snippet')) {
             $snip = $request->file('snippet');
-            $file = $slug.'_snippet_'.time().rand().'.'.$snip->getClientOriginalExtension();
-            move_uploaded_file($snip, 'assets/store/'.$file);
+            $snippet = $slug.'_snippet_'.time().rand().'.'.$snip->getClientOriginalExtension();
+            move_uploaded_file($snip, 'assets/store/'.$snippet);
         }
 
 

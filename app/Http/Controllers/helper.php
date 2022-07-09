@@ -36,4 +36,10 @@
         return ($tp == 1) ? 'Online Delivery' : 'Other Delivery';
     }
 
+    function win_hash($length)
+	{
+		return substr(str_shuffle(str_repeat('123456789', $length)), 0, $length);
+	}
+
+
 

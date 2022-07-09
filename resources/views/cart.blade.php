@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page_title')
-    Cart |
+    Cart | {{ env('APP_NAME') }}
 @endsection
 @section('page_content')
 
@@ -23,7 +23,7 @@
         <div class="container">
 
             @php
-                $orders = session()->get('cart'); $total = 0;
+                $orders = session()->has('cart') ? session()->get('cart') : []; $total = 0;
             @endphp
 
             <div class="table-responsive">
@@ -38,27 +38,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($orders as $ord)
-                        @php
-                            $ord = json_decode(json_encode($ord));
-                            $total += $ord->total;
-                        @endphp
-                            <tr>
-                                <td colspan="2">
-                                    <h5>{{$ord->item}}</h5>
-                                    <small><i>Delivery: </i> <b>{{delivery(1)}}</b></small>
-                                </td>
-                                <td>{{money($ord->price)}}</td>
-                                <td>
-                                    <div class="quantity btn-quantity style-1">
-                                        <input class="quantity-input" type="number" disabled value="{{$ord->qty}}" name="demo_vertical2"/>
-                                    </div>
-                                </td>
-                                <td><strong>{{money($ord->total)}}</strong></td>
-                                <td><a href="javascript:void(0);"><i class="flaticon-close"></i></a></td>
-                            </tr>
-                        @endforeach
-
+                        @if(count($orders) > 0)
+                            @foreach ($orders as $ord)
+                            @php
+                                $ord = json_decode(json_encode($ord));
+                                $total += $ord->total;
+                                $ser = \App\Models\Store::find($ord->id);
+                            @endphp
+                                <tr>
+                                    <td colspan="2">
+                                        <h5>{{$ord->item}}</h5>
+                                        <small><i>Delivery: </i> <b>{{delivery($ser->on_del)}}</b></small>
+                                    </td>
+                                    <td>{{money($ord->price)}}</td>
+                                    <td>
+                                        <div class="quantity btn-quantity style-1">
+                                            <input class="quantity-input" type="number" disabled value="{{$ord->qty}}" name="demo_vertical2"/>
+                                        </div>
+                                    </td>
+                                    <td><strong>{{money($ord->total)}}</strong></td>
+                                    <td><a href="javascript:void(0);"><i class="flaticon-close"></i></a></td>
+                                </tr>
+                            @endforeach
+                        @endif
                         <tr>
                             <td colspan="5" align="right">Total: <big> <strong>{{money($total)}}</strong></big></td>
                             <td></td>
@@ -69,7 +71,10 @@
                                 <div class="row">
                                     <div class="col-12 text-md-end text-start">
                                         <a href="/store" class="btn btn-sm btn-outline-secondary m-r10 mb-md-0 mb-2">Continue Shoping</a>
-                                        <button class="btn btn-sm btn-secondary" type="submit">Check Out</button>
+
+                                            @if ($total > 0)
+                                                <button class="btn btn-sm btn-secondary con_pay" type="button">Check Out</button>
+                                            @endif
                                     </div>
                                 </div>
                             </td>
@@ -94,11 +99,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="row" method="POST" enctype="multipart/form-data" action="testimonial/edit">@csrf
+                    <form method="POST" action="/checkout" class="row" id="checkoutform">@csrf
                         <div class="col-md-12 mb-2 form-group">
                             <label>Full Name <span class="text-danger">*</span> </label>
                             <input type="text" name="name" class="form-control" placeholder="Enter your fullname">
-                            <input type="hidden" name="testimony_id">
+                            <input type="hidden" name="total"  value="<?= $total ?>" >
                         </div>
                         <div class="col-md-6 mb-2 form-group">
                             <label>Email <span class="text-danger">*</span></label>
@@ -110,7 +115,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label>Address/State/Country <span class="text-danger">*</span></label>
-                            <input type="text" name="phone" class="form-control">
+                            <textarea name="address" class="form-control" cols="2"></textarea>
                         </div>
                         <div class=" col-md-12 mt-3 d-flex justify-content-end">
                             <button class="btn btn-primary">Continue To Payment</button>
@@ -123,15 +128,13 @@
 
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
     <script>
         $(function() {
-            $('#checkout').modal('show');
-            $('#addtocart').on('submit', function(e) {
-                e.preventDefault();
-                form = $(this);
 
+            $('.con_pay').on('click', function() {
+                $('#checkout').modal('show');
             })
-
 
             $('.btn-close').on('click', function() {
                 $('#checkout').modal('hide');

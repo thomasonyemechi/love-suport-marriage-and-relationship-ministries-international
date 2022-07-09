@@ -29,6 +29,7 @@
                     <ul class="nav navbar-nav navbar navbar-left">
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About Us</a></li>
+                        <li><a href="/event">Events</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                         <li><a href="/store">Store</a></li>
                         <li><a href="/contact">Contact Us</a></li>
