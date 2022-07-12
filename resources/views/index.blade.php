@@ -3,15 +3,6 @@
 @endsection
 @section('page_content')
     <style>
-        .lefticon {
-            position: absolute;
-            /*Needs to be Absolute Positioned to the parent relative div*/
-            top: 40%;
-            /*50% from the top*/
-            left: -13px;
-            /*-10px left as the width is 20px*/
-        }
-
         .display-none {
             display: none;
         }
@@ -20,41 +11,6 @@
             display: block;
         }
 
-
-        .righticon {
-            position: absolute;
-            /*Needs to be Absolute Positioned to the parent relative div*/
-            top: 40%;
-            /*50% from the top*/
-            right: -15px;
-            /*-10px left as the width is 20px*/
-
-        }
-
-        .lefticon,
-        .righticon {
-            transform: translate(0, -50%);
-            /*Moves postion of element*/
-            text-align: center;
-            /*Aligns icon in center vertically*/
-            line-height: 17px;
-            /*Aligns icon in center horizontally*/
-            width: 30px;
-            height: 30px;
-            border: 1px solid #ff5269;
-            background: #ff5269;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-            color: #FFFFFF;
-        }
-
-
-        .cicon:hover {
-            background: #FFFFFF;
-            color: #ff5269;
-        }
 
         .text-ellipsis--2{
             text-overflow:ellipsis;
@@ -114,15 +70,25 @@
     @endphp
 
 
+@php
+$events = App\Models\Event::inRandomOrder()
+    ->limit(7)
+    ->get();
+@endphp
+
+
     <section class="content-inner-1 bg-gray">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 wow slideInLeft" data-wow-delay="1.5s">
                     <h3 class="text-center">Testimony</h3>
-                    <div class="icon-bx-wraper p-0 style-5 flip-bx">
+                    <div class="icon-bx-wraper m-b30 p-0 style-5 flip-bx">
                         @foreach ($testimonies as $test)
                             <div data-count={{ $loop->iteration }}
                                 class="dz-card testimonial-card style-5 pb-0 mb-0 fadeIn {{ $loop->iteration == 1 ? 'display-block' : 'display-none' }}">
+                                <div class="dz-media">
+                                    <img src="{{ asset('assets/images/testimonials/'.$test->photo)}}" alt="">
+                                </div>
                                 <div class="dz-info text-center">
                                     <div class="dz-meta mb-0">
                                         <div class="testimonial-3 p-0 ">
@@ -132,22 +98,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h4 class="mt-0">{{ $test->name }}</h4>
+                                    <h4 class="dz-title mb-2 two-lines"><a href="javscript:;">{{ $test->name }}</a></h4>
                                     <p class="mb-0 text-ellipsis--2">{{ $test->testimony }}</p>
                                 </div>
                             </div>
                         @endforeach
-                        <div class="cicon lefticon test-prev"><i class="flaticon-left-arrow"></i></div>
-                        <div class="cicon righticon test-next"><i class="flaticon-right-arrow"></i></div>
-
-                        <a href="/testimony">
-                            <p class="text-center">See All Testimonies</p>
-                        </a>
+                        <div class="mt-3 d-flex justify-content-center">
+                            <div class="btn-prev test-prev"><i class="flaticon-left-arrow"></i></div>
+                            <div class="btn-next righticon test-next"><i class="flaticon-right-arrow"></i></div>
+                        </div>
+                    </div>
+                    <div class="mt-3 d-flex justify-content-center">
+                        <a href="/testimony">All Testimonies</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow slideInLeft" data-wow-delay="1s">
                     <h3 class="text-center">Our Seminars</h3>
-                    <div class="icon-bx-wraper p-0 style-5 flip-bx">
+                    <div class="icon-bx-wraper  m-b30 style-5 flip-bx">
                         <div data-count=1 class="dz-card seminar-card style-5 pb-0 mb-0 fadeIn display-block">
                             <div class="dz-info text-center">
                                 <h4 class="title text-primary text-center m-b10">Create</h4>
@@ -179,42 +146,45 @@
                             </div>
                         </div>
 
-
-
-                        <div class="cicon lefticon sem-prev"><i class="flaticon-left-arrow"></i></div>
-                        <div class="cicon righticon sem-next"><i class="flaticon-right-arrow"></i></div>
-
-                        <a href="/about">
-                            <p class="text-center">More About Us</p>
-                        </a>
+                        <div class="mt-3 d-flex justify-content-center">
+                            <div class="btn-prev sem-prev"><i class="flaticon-left-arrow"></i></div>
+                            <div class="btn-next sem-next"><i class="flaticon-right-arrow"></i></div>
+                        </div>
+                    </div>
+                    <div class="mt-3 d-flex justify-content-center">
+                        <a href="/about">About Us</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow slideInLeft" data-wow-delay=".5s">
                     <h3 class="text-center">Events</h3>
 
-                    <div class="icon-bx-wraper style-5 m-b30 flip-bx">
-                        <div class="front overlay-black-middle" style="background-image: url(images/services/pic3.jpg);">
-                            <div class="inner">
-                                <div>
-                                    <div class="badge-top"><i class="fas fa-chevron-right"></i></div>
-                                    <h4 class="title">Powerful Mindset</h4>
+                    <div class="icon-bx-wraper style-5 flip-bx">
+                        @foreach ($events as $event)
+                            <div data-count={{ $loop->iteration }} class="dz-card event-card style-5 m-b30 wow fadeIn  {{ $loop->iteration == 1 ? 'display-block' : 'display-none' }} " data-wow-delay=".2s" data-wow-duration="2s">
+                                <div class="dz-media">
+                                    <img src="{{ asset('assets/store/'.$event->photo)}}" alt="">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="inner">
-                                <div>
-                                    <div class="icon-lg m-b20">
-                                        <img src="images/services/ico3.png" alt="">
+                                <div class="dz-info">
+                                    <div class="dz-meta">
+                                        <ul>
+                                            <li class="post-date">{{ date('j', $event->date) }} <br> {{ date('F', $event->date) }} </li>
+                                            <li class="post-catagory"><a href="javascript:void(0);">{{$event->tag}}</a></li>
+                                        </ul>
                                     </div>
-                                    <h4 class="title m-b15"><a href="services-details.html" class="text-white">Powerful
-                                            Mindset</a></h4>
-                                    <p>Integer pretium, nisi at aliquam faucibus, ligula leo sollicitudin ligula, a
-                                        scelerisque magna nunc sit amet leo.</p>
-                                    <a href="services-details.html" class="btn-link">Read More</a>
+                                    <h4 class="dz-title two-lines"><a href="javscript:;">{{ $event->name }}</a></h4>
+                                    <p class="four-lines pb-0">{{ $event->description }}</p>
+                                    <a class="link-icon " href="javscript:;">Read More<i class="las la-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
+                        @endforeach
+
+                        <div class=" d-flex justify-content-center">
+                            <div class="btn-prev event-prev"><i class="flaticon-left-arrow"></i></div>
+                            <div class="btn-next event-next"><i class="flaticon-right-arrow"></i></div>
                         </div>
+                    </div>
+                    <div class="mt-3 d-flex justify-content-center">
+                        <a href="/event" class="link-icon">More Events</a>
                     </div>
                 </div>
             </div>

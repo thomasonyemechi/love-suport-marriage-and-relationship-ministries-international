@@ -89,7 +89,7 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="item-box m-b30">
                         <div class="item-im">
-                            <audio style="width: 100%" controls autoplay>
+                            <audio style="width: 100%" controls>
                                 <source src="{{asset('assets/store/perfect.mp3') }}" type="audio/mpeg">
                                  Your browser does not support the audio element.
                             </audio>

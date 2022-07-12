@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestimonyController;
 use App\Models\Store;
@@ -23,11 +24,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
 Route::get('/about', function () { return view('about'); });
 Route::get('/contact', function () { return view('contact'); });
 Route::get('/gallery', function () { return view('gallery'); });
 Route::get('/store', function () { return view('store'); });
 Route::get('/cart', function () { return view('cart'); });
+Route::get('/testimony', function () { return view('testimony'); });
+Route::get('/event', function () { return view('event'); });
 Route::get('/store/{slug}', function ($slug) { $item = Store::where('slug', $slug)->first();  return view('item', compact('item')); });
 Route::post('/newsletter/add', [NewsletterController::class, 'addEmail'] );
 Route::post('/newsletter/remove', [NewsletterController::class, 'removeEmail'] );
@@ -45,14 +50,13 @@ Route::get('/flutterwave/callback', [OrderController::class, 'callback'] )->name
 Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function (){
     Route::get('/', function () { return view('admin.index'); });
     Route::get('/testimonial', function () { return view('admin.testimonial'); });
+    Route::get('/event', function () { return view('admin.event'); });
     Route::get('/contact/messages', function () { return view('admin.view_contact_messages'); });
     Route::get('/store/', function () { return view('admin.add_product'); });
     Route::get('/store/{slug}', function ($slug) {
         $item = Store::where('slug', $slug)->first();
         return view('admin.product', compact('item'));
     });
-
-
 
     Route::post('/store/add_new', [StoreController::class, 'addItemToStore']);
     Route::get('/get_item_list', [StoreController::class, 'fetchStoreItem']);
@@ -61,6 +65,9 @@ Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function
     Route::post('/testimonial/add_new', [TestimonyController::class, 'addTestimony']);
     Route::post('/testimonial/edit', [TestimonyController::class, 'editTestimony']);
     Route::get('/testimonial/delete/{id}', [TestimonyController::class, 'deleteTestimony']);
+
+
+    Route::post('/event/add_new', [ProgramController::class, 'addEvent']);
 
 
 

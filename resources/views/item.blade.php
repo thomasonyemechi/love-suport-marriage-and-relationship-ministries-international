@@ -102,43 +102,6 @@
 
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="swiper-container related-item-swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="item-box">
-                                    <div class="item-img">
-                                        <img src="assets/images/product/item1.jpg" alt="">
-                                        <span class="badge bg-success">Sale</span>
-                                        <div class="item-info-in">
-                                            <ul>
-                                                <li><a href="javascript:void(0);"><i class="ti-shopping-cart"></i></a></li>
-                                                <li><a href="javascript:void(0);"><i class="ti-eye"></i></a></li>
-                                                <li><a href="javascript:void(0);"><i class="ti-heart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="item-info text-center">
-                                        <h4 class="item-title"><a href="shop-grid-3.html">Denim Jeans</a></h4>
-                                        <ul class="item-review">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fas fa-star-half-alt"></i></li>
-                                            <li><i class="far fa-star"></i></li>
-                                        </ul>
-                                        <h4 class="item-price">$400</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-button-next-related"></div>
-                        <div class="swiper-button-prev-related"></div>
-                    </div>
-                </div>
-            </div>
     </section>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>

@@ -10,7 +10,7 @@
             <h1>About Us</h1>
             <nav aria-label="breadcrumb" class="breadcrumb-row">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">About Us</li>
                 </ul>
             </nav>
@@ -84,66 +84,6 @@
 
                  </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="content-inner">
-    <div class="container">
-        <div class="section-head text-center style-2 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
-            <h2>Our Seminars</h2>
-        </div>
-        <div class="container-fluid">
-            <div class="row" style="font-size: 13px">
-                <div class="col-lg-3 col-md-6 panel">
-                    <div class="dz-box style-2 m-b30">
-                        <div class="dz-info">
-                            <h4 class="title text-red text-center m-b10">Create</h4>
-                            <p class="text-center">
-                                We create awareness <br> and provides research based information<br> about the  problem that the
-                                contemporary society is <br> having on family and marriages
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 panel">
-                    <div class="dz-box style-2 m-b30">
-                        <div class="dz-info">
-                            <h4 class="title text-red text-center m-b10">Restoration</h4>
-                            <p class="text-center">
-                               We network with other organization tha provides divorce recovery and greif support programs,
-                                which also deals with sexual addictions, for men and their wives.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 panel">
-                    <div class="dz-box style-2 m-b30">
-                        <div class="dz-info">
-                            <h4 class="title text-red text-center m-b10">Consultation</h4>
-                            <p class="text-center" >
-                                We have opportunity to work with a variety of churches and para church organozations to help
-                                strengthens their caring minstries and skills in pastoral <br> counselling
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 panel">
-                    <div class="dz-box style-2 m-b30">
-                        <div class="dz-info">
-                            <h4 class="title text-red text-center m-b10">Collaboration</h4>
-                            <p class="text-center">
-                                We work together with other organization ro incrase the impact and effectivenes of the services ooffered to the community through partnership arrangements
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </div>

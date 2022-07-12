@@ -12,6 +12,13 @@ class ProgramController extends Controller
 {
 
 
+    function delelteEvent($id)
+    {
+        Event::where('id', $id)->delete();
+        return back()->with('success', 'Event has been deleted scuessfully');
+    }
+
+
     function changeStatus($id){
         $event = Event::find($id);
         $new_status  = ($event->statu == 1) ? 0 : 1 ;
@@ -20,36 +27,35 @@ class ProgramController extends Controller
         ]);
         return back()->with('success', 'Event status has been updated sucessfully');
     }
+
+
+
     function addEvent(Request $request)
     {
         $val = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:500',
+            'event' => 'required|min:3|max:500|unique:events,name',
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'date' => 'required|date',
+            'description' => 'required|string'
         ]);
 
-        if ($val->fails()){ return response(['errors' => $val->errors()->all() ]);}
-
-        $ck = Event::where('name', $request->name)->count();
-
-        if($ck > 0){ return response(['message' => 'Event with name already exists'], 409); }
+        if($val->fails()) { return back()->with('error', do_er($val->errors()->all()) );  }
 
         $img = 'no-image.png';
-
         if($request->hasFile('photo')){
             $photo = $request->file('photo');
-            $img = Str::slug($request->name).time().'.'.$photo->getClientOriginalExtension();
+            $img = Str::slug($request->event).time().'.'.$photo->getClientOriginalExtension();
             move_uploaded_file($photo, 'assets/store/'.$img);
         }
 
         Event::create([
-            'name' => $request->name,
+            'name' => $request->event,
+            'tag' => $request->tags ?? 'Relationship',
             'description' => $request->description,
             'photo' => $img,
             'date' => strtotime($request->date)
         ]);
 
-        return response([
-            'message' => 'Event has bee added sucessfully',
-        ], 200);
+        return back()->with('success', 'Event has been added sucesfully');
     }
 }

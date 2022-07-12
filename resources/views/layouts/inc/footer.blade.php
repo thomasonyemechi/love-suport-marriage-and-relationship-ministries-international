@@ -65,21 +65,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-sm-4 col-6">
-                    <div class="widget widget_services">
+                <div class="col-xl-4 col-lg-4 col-sm-4 col-6">
+                    <div class="widget widget_services" align="center">
                         <h4 class="footer-title">Our Links</h4>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Testimonies</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">Store</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/testimony">Testimonies</a></li>
+                            <li><a href="/gallery">Gallery</a></li>
+                            <li><a href="/event">Events</a></li>
+                            <li><a href="/store">Store</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-5 col-6">
-                    <div class="widget widget_services">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-5 col-6">
+                    <div class="widget widget_services align-center" align="center">
                         <h4 class="footer-title">Our Seminars</h4>
                         <ul>
                             <li><a href="javascript:void(0);">Awareness</a></li>
@@ -87,20 +87,6 @@
                             <li><a href="javascript:void(0);">Prevention</a></li>
                             <li><a href="javascript:void(0);">Consultation</a></li>
                             <li><a href="javascript:void(0);">Colaboration</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-7">
-                    <div class="widget widget_gallery">
-                        <h4 class="footer-title">Gallery</h4>
-                        <ul class="lightgallery">
-                            <li>
-                                <div class="dz-post-thum dz-img-effect">
-                                    <span data-exthumbimage="images/gallery/pic1.jpg" data-src="images/gallery/pic1.jpg" class="lightimg" title="Image 1 Title will come here">
-                                        <img src="{{ asset('assets/images/gallery/pic1.jpg') }}" alt="">
-                                    </span>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
