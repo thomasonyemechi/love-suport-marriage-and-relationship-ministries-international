@@ -23,7 +23,7 @@ Testimonies | {{ env('APP_NAME') }}
 $testimonies = App\Models\Testimony::paginate(12);
 @endphp
 
-<section class="content-inner">
+<section class="content-inner c ">
     <div class="container">
         <div class="row">
             @foreach ($testimonies as $test)
