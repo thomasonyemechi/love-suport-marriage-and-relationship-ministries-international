@@ -75,8 +75,6 @@ $events = App\Models\Event::inRandomOrder()
     ->limit(7)
     ->get();
 @endphp
-
-
     <section class="content-inner-1 bg-gray">
         <div class="container">
             <div class="row justify-content-center">

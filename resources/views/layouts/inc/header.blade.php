@@ -32,6 +32,7 @@
                         <li><a href="/event">Events</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                         <li><a href="/store">Store</a></li>
+                        <li><a href="/testimony">Testimonies</a></li>
                         <li><a href="/contact">Contact Us</a></li>
                     </ul>
                     <div class="dz-social-icon">

@@ -123,4 +123,36 @@
     </div>
 </section>
 
+<section class="content-inner">
+    <div class="container">
+        <div class="row about-bx8">
+            <div class="col-lg-6 align-self-center">
+                <div class="section-head style-2">
+                    <h2>Meet Our Founder</h2>
+                    <p>
+                        Rev. Albert Tope – Ojo
+                        (aka Topman) is an anointed servant of God, born in Nigeria who began ministerial work at a very youthful age of 17. Having served in various Christian leadership positions in Fellowships and churches at local, National and International levels, he has started his unique role in the Lord’s end-time- army
+                        Pastor Tope Ojo, has traveled extensively preaching and planting churches. He has preached and conducts seminars/conferences in USA, Nigeria, Israel, Canada, Europe and South Africa.
+
+                        He is particularly passionate and burdened about the families of fellow Africans in Diaspora, who are faced with the enormous challenge of multicultural forces militating against them in foreign land.
+
+                        He is the CEO of Life Support Christian Counseling Ministries, a ministry that is engaged in proactive ways of helping couples build and nurture stronger and healthier relationships.
+
+                        The distinction of this servant of God lies in the provocative candor of his ideas and his transformation of marriage issues into a practical and joyful experience. His proactive and unconventional ideas have great implications for contemporary family relationships, with real life testimonies following his ministrations as you’re about to witness from this presentation.
+
+
+                        He is a Board Certified Pastoral Counselor, a member of the American Association of Christian Counselors (AACC), and the International Board of Christian Counselors (IBCC).
+                        He’s been married to Josephine Temitope since 1990, which together with him run the vision of Life Support Ministries. They are blessed with four precious gifts: Tumi, Tundun, Brittany-Chloe and Timilehin.
+
+                    </p>
+                </div>s
+            </div>
+            <div class="col-lg-6 m-b30">
+                <div class="dz-media">
+                    <img src="images/about/pic3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
