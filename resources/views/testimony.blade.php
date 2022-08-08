@@ -41,7 +41,7 @@ $testimonies = App\Models\Testimony::paginate(12);
                             </div>
                             <h4 class="mt-0">{{ $test->name }}</h4>
                             <p class="mb-0 four-lines">{{ $test->testimony }}</p>
-                            <a href="javascript:;" class="mt-2"> <i>Read More</i> </a>
+                            <a href="javascript:;" class="mt-2 read-testimony"  data-data='{{ json_encode($test) }}' > <i>Read More</i> </a>
                         </div>
                     </div>
                 </div>
@@ -53,6 +53,63 @@ $testimonies = App\Models\Testimony::paginate(12);
         </div>
     </div>
 </section>
+
+
+
+<div class="modal fade" id="readmore">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-end" >
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-3 ">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script>
+    $(function() {
+        $('body').on('click', '.read-testimony', function(){
+            data = $(this).data('data');
+            console.log(data);
+
+            modal = $('#readmore');
+            modal.modal('show')
+
+            $(modal).find('.testimonial-3').html(`
+                <div class="testimonial-pic">
+                    <img src="assets/images/testimonials/${data.photo}" alt="">
+                </div>
+                <div class="testimonial-info">
+                    <div class="info">
+                        <h4 class="testimonial-name">${data.name}</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>${data.testimony}</p>
+                    </div>
+                </div>
+            `)
+        })
+
+        $('.btn-close').on('click', function() {
+            $('#readmore').modal('hide')
+        })
+    })
+
+
+
+</script>
 
 
 

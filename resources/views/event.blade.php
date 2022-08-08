@@ -44,7 +44,7 @@ $events = App\Models\Event::paginate(12);
                             </div>
                             <h4 class="dz-title two-lines"><a href="javscript:;">{{ $event->name }}</a></h4>
                             <p class="four-lines">{{ $event->description }}</p>
-                            <a class="link-icon " href="javscript:;">Read More<i class="las la-long-arrow-alt-right"></i></a>
+                            <a class="link-icon read-event" href="javscript:;" data-data='{{ json_encode($event) }}'>Read More<i class="las la-long-arrow-alt-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -57,6 +57,94 @@ $events = App\Models\Event::paginate(12);
     </div>
 </section>
 
+
+<div class="modal fade" id="readmore">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-end" >
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+
+
+
+                <div class="dz-card blog-single style-5">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script>
+    $(function() {
+
+        function toDateTime(secs) {
+    var t = new Date(Date.UTC(1970, 0, 1)); // Epoch
+    t.setUTCSeconds(secs);
+    return t;
+}
+
+
+
+
+
+        $('body').on('click', '.read-event', function(){
+            data = $(this).data('data');
+            console.log(data);
+
+            modal = $('#readmore');
+            modal.modal('show')
+
+            tags = ''
+
+            tag = data.tag.split(',');
+            tag.map(ta => {
+                console.log(ta);
+                tags += `
+                    <a href="javascript:;">#${ta}</a>
+                `
+            })
+
+            console.log(tag);
+
+
+            $(modal).find('.blog-single').html(`
+                <div class="dz-info">
+                    <img src="assets/store/${data.photo}" style="width:100%; object-fit: cover;  height: 300px;" >
+                    <h2 class="dz-title">${data.name}</h2>
+                    <div class="dz-meta">
+                        <ul>
+                            <li class="post-category">${formatDate(toDateTime(data.date))}</li>
+                            <li class="post-author"><i class="las la-user"></i><a href="javascript:void(0);">Admin</a></li>
+                        </ul>
+                    </div>
+                    <p>${data.description}</p>
+                </div>
+                <div class="dz-share-post wow fadeIn" data-wow-delay=".2s" data-wow-duration="2s">
+
+                    <div class="post-tags">
+                        ${tags}
+                    </div>
+                </div>
+
+            `)
+        })
+
+        $('.btn-close').on('click', function() {
+            $('#readmore').modal('hide')
+        })
+    })
+
+
+
+</script>
 
 
 @endsection

@@ -3,6 +3,21 @@
     About | {{ env('APP_NAME') }}
 @endsection
 @section('page_content')
+<style>
+     .iconDetails {
+ margin-left:2%;
+float:left;
+width: 20%;
+margin-right: 7px;
+border-radius: 50%;
+}
+
+.container2 {
+    width:100%;
+    height:auto;
+    padding:1%;
+}
+</style>
 
 <div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
     <div class="container">
@@ -126,26 +141,75 @@
 <section class="content-inner">
     <div class="container">
         <div class="row about-bx8">
-            <div class="col-lg-6 align-self-center">
+            <div class="col-lg-12 align-self-center">
                 <div class="section-head style-2">
-                    <h2>Meet Our Founder</h2>
-                    <p>
-                        Rev. Albert Tope – Ojo
-                        (aka Topman) is an anointed servant of God, born in Nigeria who began ministerial work at a very youthful age of 17. Having served in various Christian leadership positions in Fellowships and churches at local, National and International levels, he has started his unique role in the Lord’s end-time- army
-                        Pastor Tope Ojo, has traveled extensively preaching and planting churches. He has preached and conducts seminars/conferences in USA, Nigeria, Israel, Canada, Europe and South Africa.
-
-                        He is particularly passionate and burdened about the families of fellow Africans in Diaspora, who are faced with the enormous challenge of multicultural forces militating against them in foreign land.
-
-                        He is the CEO of Life Support Christian Counseling Ministries, a ministry that is engaged in proactive ways of helping couples build and nurture stronger and healthier relationships.
-
-                        The distinction of this servant of God lies in the provocative candor of his ideas and his transformation of marriage issues into a practical and joyful experience. His proactive and unconventional ideas have great implications for contemporary family relationships, with real life testimonies following his ministrations as you’re about to witness from this presentation.
 
 
-                        He is a Board Certified Pastoral Counselor, a member of the American Association of Christian Counselors (AACC), and the International Board of Christian Counselors (IBCC).
-                        He’s been married to Josephine Temitope since 1990, which together with him run the vision of Life Support Ministries. They are blessed with four precious gifts: Tumi, Tundun, Brittany-Chloe and Timilehin.
 
-                    </p>
-                </div>s
+                    <div class='container2'>
+
+                        <h3>  Meet Our Founder</h2>
+                        <div>
+                            <img src="{{asset('assets/images/pic3.jpg')}}" class="iconDetails" >
+                        </div>
+                        <div style="font-size: 1em"> <h3 style="font-size: 2em;" >Rev. Albert Tope Ojo <small>(aka Topman)</small> </h3>
+                           <p>
+                            is an anointed servant of God, born in Nigeria who began ministerial work at a very youthful age of 17. Having served in various Christian leadership positions in Fellowships and churches at local, National and International levels, he has started his unique role in the Lord’s end-time- army
+                            Pastor Tope Ojo, has traveled extensively preaching and planting churches. He has preached and conducts seminars/conferences in USA, Nigeria, Israel, Canada, Europe and South Africa.
+                           </p>
+                           <p>
+                            He is particularly passionate and burdened about the families of fellow Africans in Diaspora, who are faced with the enormous challenge of multicultural forces militating against them in foreign land.
+                           </p>
+                           <p>
+                            He is the CEO of Life Support Christian Counseling Ministries, a ministry that is engaged in proactive ways of helping couples build and nurture stronger and healthier relationships.
+
+                           </p>
+
+                           <p>
+                            The distinction of this servant of God lies in the provocative candor of his ideas and his transformation of marriage issues into a practical and joyful experience. His proactive and unconventional ideas have great implications for contemporary family relationships, with real life testimonies following his ministrations as you’re about to witness from this presentation.
+
+                           </p>
+                           <p>
+                            He is a Board Certified Pastoral Counselor, a member of the American Association of Christian Counselors (AACC), and the International Board of Christian Counselors (IBCC).
+
+                           </p>
+                           <p>
+                                His areas of specialties include:
+                                <div class="row m-b20">
+                                    <div class="col-sm-4">
+                                        <ul class="wow fadeInUp list-check-4" data-wow-delay="1.0s">
+                                            <li>Marriage Enrichment Seminars</li>
+
+                                            <li>Sexual/Alcohol Addiction Restoration</li>
+                                            <li>Anger Management</li>
+
+                                            <li>Youths & Young Adults Empowerment</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="wow fadeInUp list-check-4" data-wow-delay="1.0s">
+                                            <li>Single Parenting Workshops </li>
+                                            <li>Parental Education Seminars</li>
+
+                                            <li>Divorce Prevention & Recovery</li>
+                                            <li>Life Coaching & Mentoring</li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="wow fadeInUp list-check-4" data-wow-delay="1.0s">
+                                            <li>Pre-Marital Counseling Seminars</li>
+                                            <li>Grief Support</li>
+                                            <li>Relationship Reconciliation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                           </p>
+                        </div>
+                </div>
+
+
+                </div>
             </div>
             <div class="col-lg-6 m-b30">
                 <div class="dz-media">

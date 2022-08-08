@@ -182,7 +182,7 @@ $events = App\Models\Event::inRandomOrder()
                         </div>
                     </div>
                     <div class="mt-3 d-flex justify-content-center">
-                        <a href="/event" class="link-icon">More Events</a>
+                        <a href="/event">More Events</a>
                     </div>
                 </div>
             </div>
