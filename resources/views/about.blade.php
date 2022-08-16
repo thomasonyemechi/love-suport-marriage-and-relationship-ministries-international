@@ -148,10 +148,11 @@ border-radius: 50%;
 
                     <div class='container2'>
 
-                        <h3>  Meet Our Founder</h2>
+                        
                         <div>
                             <img src="{{asset('assets/images/pic3.jpg')}}" class="iconDetails" >
                         </div>
+                        <h5 class="text-primary mb-0 pb-0">  Meet Our Founder</h5>
                         <div style="font-size: 1em"> <h3 style="font-size: 2em;" >Rev. Albert Tope Ojo <small>(aka Topman)</small> </h3>
                            <p>
                             is an anointed servant of God, born in Nigeria who began ministerial work at a very youthful age of 17. Having served in various Christian leadership positions in Fellowships and churches at local, National and International levels, he has started his unique role in the Lord’s end-time- army

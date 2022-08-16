@@ -63,7 +63,7 @@
                                 </li>
                                 <li class="sub-menu-down"><a href="javascript:void(0);">Others</a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Events</a></li>
+                                        <li><a href="/event">Events</a></li>
                                         <li><a href="#">Newsletter</a></li>
                                         <li><a href="#">Search User</a></li>
                                         <li><a href="/control/testimonial">Testimonial</a></li>

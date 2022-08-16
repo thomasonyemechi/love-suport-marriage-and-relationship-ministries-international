@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestimonyController;
@@ -45,9 +46,11 @@ Route::post('/checkout', [OrderController::class, 'processFlutterWave'] );
 Route::get('/cart/{user_id}/{track_id}', [OrderController::class, 'verifyPayment'] );
 Route::get('/flutterwave/callback', [OrderController::class, 'callback'] )->name('flutterwave-callback');
 
+Route::get('/login', function () { return view('admin.login'); });
+Route::post('/login', [OwnerController::class, 'ownerLogin']);
 
 
-Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> [] ], function (){
+Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> ['auth'] ], function (){
     Route::get('/', function () { return view('admin.index'); });
     Route::get('/testimonial', function () { return view('admin.testimonial'); });
     Route::get('/event', function () { return view('admin.event'); });

@@ -34,7 +34,7 @@ class ProgramController extends Controller
     {
         $val = Validator::make($request->all(), [
             'event' => 'required|min:3|max:500|unique:events,name',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg,avif|max:2048',
             'date' => 'required|date',
             'description' => 'required|string'
         ]);
