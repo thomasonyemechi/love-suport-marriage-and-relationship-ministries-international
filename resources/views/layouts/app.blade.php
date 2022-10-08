@@ -98,7 +98,7 @@
 
 
     {{-- Javascripts Here .... --}}
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS --> 
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
     <script src="{{ asset('assets/vendor/wow/wow.js') }}"></script><!-- WOW JS -->
     <script src="{{ asset('assets/vendor/rangeslider/rangeslider.js') }}"></script><!-- RANGESLIDER -->

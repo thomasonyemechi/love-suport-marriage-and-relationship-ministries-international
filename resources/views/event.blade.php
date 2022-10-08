@@ -3,22 +3,7 @@
 Events | {{ env('APP_NAME') }}
 @endsection
 @section('page_content')
-
-<div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
-    <div class="container">
-        <div class="dz-bnr-inr-entry">
-            <h1>Events</h1>
-            <nav aria-label="breadcrumb" class="breadcrumb-row">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Events</li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-
+ 
 @php
 $events = App\Models\Event::paginate(12);
 @endphp

@@ -9,7 +9,7 @@
                         </div>
                         <div class="icon-content">
                             <h4 class="dz-tilte text-white">Location</h4>
-                            <p>1247/Plot No. 39, 15th Phase, Huab Colony, Kukatpally, Hyderabad</p>
+                            <p>{{ env('LOCATION') }}</p>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="icon-content">
                             <h4 class="dz-tilte text-white">Working Hours</h4>
-                            <p>Mon To Fri 8am - 10pm <br>Sat 8am - 8pm</p>
+                            <p>Mon To Fri 9am - 5pm</p>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <div class="footer-logo logo-white">
                             <a href="index.html"><img src="{{ asset('assets/images/logo-white-3.png') }}" alt=""></a>
                         </div>
-                        <p class="m-b30">Integer vitae eleifend risus, in ultricies nulla. Sed euismod molestie massa.</p>
+                        <p class="m-b30">Add Your Email To Our Notification List</p>
 
                         <form class="dzSubscribe style-2 m-b30" method="post">
                             <div class="dzSubscribeMsg"></div>
@@ -72,7 +72,6 @@
                             <li><a href="/">Home</a></li>
                             <li><a href="/about">About Us</a></li>
                             <li><a href="/testimony">Testimonies</a></li>
-                            <li><a href="/gallery">Gallery</a></li>
                             <li><a href="/event">Events</a></li>
                             <li><a href="/store">Store</a></li>
                         </ul>

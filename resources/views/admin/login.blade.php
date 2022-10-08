@@ -35,7 +35,7 @@
     <div class="login-box">
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg"><b>Life Support Christain Counseling Ministries</b><br>Sign In</p>
+                <p class="login-box-msg">Sign In</p>
                 <form action="/login" method="post">@csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email">

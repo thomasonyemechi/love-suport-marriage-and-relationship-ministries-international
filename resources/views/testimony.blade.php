@@ -4,21 +4,6 @@ Testimonies | {{ env('APP_NAME') }}
 @endsection
 @section('page_content')
 
-<div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/images/banner/bnr1.jpg') }}');">
-    <div class="container">
-        <div class="dz-bnr-inr-entry">
-            <h1>Testimonies</h1>
-            <nav aria-label="breadcrumb" class="breadcrumb-row">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Testimonies</li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-
 @php
 $testimonies = App\Models\Testimony::paginate(12);
 @endphp

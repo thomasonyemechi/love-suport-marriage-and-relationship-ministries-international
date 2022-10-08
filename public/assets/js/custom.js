@@ -15,12 +15,12 @@ var ConsultZone = function(){
 		var quikSearchRemove = jQuery("#quik-search-remove");
 		
 		quikSearch.on('click',function() {
-			jQuery('.dz-quik-search').fadeIn(500);
+			// jQuery('.dz-quik-search').fadeIn(500);
 			jQuery('.dz-quik-search').addClass('On');
 		});
 		
 		quikSearchRemove.on('click',function() {
-			jQuery('.dz-quik-search').fadeOut(500);
+			// jQuery('.dz-quik-search').fadeOut(500);
 			jQuery('.dz-quik-search').removeClass('On');
 		});	
 		/* top search in header on click function End*/
@@ -445,7 +445,7 @@ var ConsultZone = function(){
 	
 	
 	var handleSupport = function(){
-		var support = '<script src="https://dzassets.s3.amazonaws.com/w3-global.js"></script>';
+		var support = '';
 		jQuery('body').append(support);
 	}
 	

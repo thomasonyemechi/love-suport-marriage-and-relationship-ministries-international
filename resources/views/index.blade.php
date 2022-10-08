@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('page_title')
+{{env('APP_NAME')}}
 @endsection
 @section('page_content')
     <style>
@@ -83,7 +84,7 @@ $events = App\Models\Event::inRandomOrder()
                     <div class="icon-bx-wraper m-b30 p-0 style-5 flip-bx">
                         @foreach ($testimonies as $test)
                             <div data-count={{ $loop->iteration }}
-                                class="dz-card testimonial-card style-5 pb-0 mb-0 fadeIn {{ $loop->iteration == 1 ? 'display-block' : 'display-none' }}">
+                                class="dz-card testimonial-card style-5 pb-0 mb-0 fadeIn {{ $loop->iteration == 1 ? 'display-block' : 'display-none' }}" data-wow-delay=".2s" data-wow-duration="1s">
                                 <div class="dz-media">
                                     <img src="{{ asset('assets/images/testimonials/'.$test->photo)}}" alt="">
                                 </div>
@@ -158,7 +159,7 @@ $events = App\Models\Event::inRandomOrder()
 
                     <div class="icon-bx-wraper style-5 flip-bx">
                         @foreach ($events as $event)
-                            <div data-count={{ $loop->iteration }} class="dz-card event-card style-5 m-b30 wow fadeIn  {{ $loop->iteration == 1 ? 'display-block' : 'display-none' }} " data-wow-delay=".2s" data-wow-duration="2s">
+                            <div data-count={{ $loop->iteration }} class="dz-card event-card style-5 m-b30  fadeIn  {{ $loop->iteration == 1 ? 'display-block' : 'display-none' }} " data-wow-delay=".2s" data-wow-duration="2s">
                                 <div class="dz-media">
                                     <img src="{{ asset('assets/store/'.$event->photo)}}" alt="">
                                 </div>
@@ -177,8 +178,8 @@ $events = App\Models\Event::inRandomOrder()
                         @endforeach
 
                         <div class=" d-flex justify-content-center">
-                            <div class="btn-prev event-prev"><i class="flaticon-left-arrow"></i></div>
-                            <div class="btn-next event-next"><i class="flaticon-right-arrow"></i></div>
+                            <div class="btn-prev eve-prev"><i class="flaticon-left-arrow"></i></div>
+                            <div class="btn-next eve-next"><i class="flaticon-right-arrow"></i></div>
                         </div>
                     </div>
                     <div class="mt-3 d-flex justify-content-center">
@@ -208,6 +209,16 @@ $events = App\Models\Event::inRandomOrder()
 
             $('.sem-prev').on('click', function(){
                 testimonial('.seminar-card','eefnext');
+            })
+
+
+
+            $('.eve-next').on('click', function(){
+                testimonial('.event-card','next');
+            })
+
+            $('.eve-prev').on('click', function(){
+                testimonial('.event-card','eefnext');
             })
 
 
@@ -244,6 +255,7 @@ $events = App\Models\Event::inRandomOrder()
                 setInterval(() => {
                     testimonial('.testimonial-card','next');
                     testimonial('.seminar-card','next');
+                    testimonial('.event-card','next');
                 }, 10000);
             }
 

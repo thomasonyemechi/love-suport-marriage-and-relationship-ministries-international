@@ -41,7 +41,7 @@
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-wallet"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Wallet</span>
+                            <span class="info-box-text">Audios</span>
                             <span class="info-box-number">41,410</span>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Mentors</span>
+                            <span class="info-box-text">Books</span>
                             <span class="info-box-number">7</span>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">New Members</span>
+                            <span class="info-box-text">Total Sales</span>
                             <span class="info-box-number">2,000</span>
                         </div>
                     </div>
@@ -144,14 +144,14 @@
                         <span class="info-box-icon"><i class="fas fa-duotone fa-credit-card"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Withrawals</span>
+                            <span class="info-box-text">Total Orders</span>
                             <span class="info-box-number">140</span>
                         </div>
                     </div>
                     <div class="info-box mb-3 bg-success">
                         <span class="info-box-icon"><i class="far fa-user"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Mentors</span>
+                            <span class="info-box-text">            </span>
                             <span class="info-box-number">8</span>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                     <div class="info-box mb-3 bg-info">
                         <span class="info-box-icon"><i class="fa fa-duotone fa-coins"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Loans</span>
+                            <span class="info-box-text">Testimonials</span>
                             <span class="info-box-number">163</span>
                         </div>
                     </div>

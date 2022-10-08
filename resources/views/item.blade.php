@@ -14,14 +14,8 @@
         }
     </style>
 
-
-
-    @php
-    // print_r(session()->get('cart')); exit;
-    @endphp
-
-
-
+    <script src="https://www.paypal.com/sdk/js?client-id=<?= env('PAYPAL_API_CLIENT_ID') ?>"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/store/' . $item->photo) }}');">
         <div class="container">
             <div class="dz-bnr-inr-entry">
@@ -64,7 +58,7 @@
                 <div class="col-xl-6 col-lg-6 m-b40">
                     <form id="addtocart" class="cart p-l30 p-md-l0">
                         <div class="dlab-post-title ">
-                            <input type="hidden" name="item_id" value="{{$item->id}}">
+                            <input type="hidden" name="item_id" value="{{ $item->id }}">
                             <h4 class="post-title">{{ $item->item }}</h4>
                             <p class="m-b30">{{ $item->description }}</p>
                         </div>
@@ -87,13 +81,17 @@
                                         <div class="dz-separator bg-primary"></div>
                                     </div>
                                     <div class="quantity btn-quantity style-1">
-                                        <input id="demo_vertical2" {{ ($item->on_del == 1) ? 'disabled' : ''}} type="number" min="1" value="1"
-                                            name="qty" />
+                                        <input id="demo_vertical2" {{ $item->on_del == 1 ? 'disabled' : '' }}
+                                            type="number" min="1" value="1" name="qty" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary"><i class="ti-shopping-cart m-r10"></i> Add To Cart</button>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary con_pay" type="button"><i class="ti-shopping-cart m-r10"></i>
+                                Buy Now</button>
+                            <div id="paypal-button"></div>
+                        </div>
                         <br><br>
                         <h4>Description</h4>
                         <p>{{ $item->more }}</p>
@@ -103,36 +101,90 @@
                 </div>
             </div>
     </section>
+
+
+    <div class="modal fade" id="checkout">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Billing Details</h4>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/checkout" class="row" id="checkoutform">@csrf
+                        <div class="col-md-12 mb-2 form-group">
+                            <label>Full Name <span class="text-danger">*</span> </label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter your fullname">
+                            <input type="hidden" name="total" value="<?= $item->price ?>">
+                            <input type="hidden" name="item_id" value="<?= $item->id ?>">
+                            <input type="hidden" name="qty" value="1">
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label>Email <span class="text-danger">*</span></label>
+                            <input type="email" name="email" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label>Phone <span class="text-danger">*</span></label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Address/State/Country <span class="text-danger">*</span></label>
+                            <textarea name="address" class="form-control" cols="2"></textarea>
+                        </div>
+                        <div class=" col-md-12 mt-3 d-flex justify-content-end">
+                            <button class="btn btn-primary">Continue To Payment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>
-        $(function() {
-            $('#addtocart').on('submit', function(e) {
-                e.preventDefault();
-                form = $(this);
-                bt = $(form).find('button');
-                qty = $(form).find('input[name="qty"]').val();
-                item_id = $(form).find('input[name="item_id"]').val();
+        // $(function() {
+        //     $('#checkout').modal('show');
+        //     $('#addtocart').on('submit', function(e) {
+        //         e.preventDefault();
+        //         form = $(this);
+        //         bt = $(form).find('button');
+        //         qty = $(form).find('input[name="qty"]').val();
+        //         item_id = $(form).find('input[name="item_id"]').val();
 
-                $.ajax({
-                    method: 'post',
-                    url: '/add_item_to_cart',
-                    data: {
-                        '_token' : `{{ csrf_token() }}`,
-                        item_id: item_id,
-                        qty: qty
-                    },
-                    beforeSend:() => {
-                        btn(bt, '', 'before')
-                    }
-                }).done(function(res) {
-                    salat(res.message);
-                    console.log(res);
-                    btn(bt, '<i class="ti-shopping-cart m-r10"></i> Add To Cart', 'after')
-                }).fail(function(res) {
-                    concatError(res.responseJSON)
-                    btn(bt, '<i class="ti-shopping-cart m-r10"></i> Add To Cart', 'after')
-                    console.log(res);
-                })
+        //         $.ajax({
+        //             method: 'post',
+        //             url: '/add_item_to_cart',
+        //             data: {
+        //                 '_token': `{{ csrf_token() }}`,
+        //                 item_id: item_id,
+        //                 qty: qty
+        //             },
+        //             beforeSend: () => {
+        //                 btn(bt, '', 'before')
+        //             }
+        //         }).done(function(res) {
+        //             salat(res.message);
+        //             console.log(res);
+        //             btn(bt, '<i class="ti-shopping-cart m-r10"></i> Add To Cart', 'after')
+        //         }).fail(function(res) {
+        //             concatError(res.responseJSON)
+        //             btn(bt, '<i class="ti-shopping-cart m-r10"></i> Add To Cart', 'after')
+        //             console.log(res);
+        //         })
+        //     })
+        // })
+    </script>
+    <script>
+        $(function() {
+
+            $('.con_pay').on('click', function() {
+                $('#checkout').modal('show');
+            })
+
+            $('.btn-close').on('click', function() {
+                $('#checkout').modal('hide');
             })
         })
     </script>

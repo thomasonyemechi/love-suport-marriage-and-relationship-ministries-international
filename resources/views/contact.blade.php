@@ -4,30 +4,13 @@
 @endsection
 @section('page_content')
 
-<div class="dz-bnr-inr style-2" style="background-image:url('{{ asset('assets/images/banner/bnr7.jpg') }}');">
-    <div class="container">
-        <div class="dz-bnr-inr-entry">
-            <h1>Contact Us</h1>
-            <!-- Breadcrumb Row -->
-            <nav aria-label="breadcrumb" class="breadcrumb-row">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-                </ul>
-            </nav>
-            <!-- Breadcrumb Row End -->
-        </div>
-    </div>
-</div>
-
-
 <section class="content-inner">
     <div class="container">
         <div class="row about-bx9">
             <div class="col-lg-6 m-b30">
                 <div class="dz-media">
                     <img src="{{ asset('assets/images/about/pic4.jpg') }}" alt="">
-                    <div class="widget widget_getintuch style-1 bg-primary">
+                    <div class="widget widget_getintuch style-1 bg-primary" style="opacity: .9">
                         <ul>
                             <li>
                                 <i class="flaticon-placeholder"></i>
@@ -48,7 +31,7 @@
             <div class="col-lg-6 m-b30 align-self-center">
                 <div class="section-head style-2">
                     <h2 class="title">Get An Adviser</h2>
-                    <p>{{env('APP_NAME_SHORT ')}} aims to help families build a strong family foundation. <br> Please complete the form on the right to connect with a member of our team.</p>
+                    <p>Please complete the form on the right to connect with a member of our team.</p>
                 </div>
                 <form class="dz-form dzForm" method="POST" action="/sendcontactmessage" >@csrf
                     <div class="row sp10">
