@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OwnerController;
@@ -8,8 +9,12 @@ use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestimonyController;
+use App\Models\Download;
 use App\Models\Store;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+
 require_once __DIR__.'/../app/Http/Controllers/helper.php';
 
 /*
@@ -25,7 +30,7 @@ require_once __DIR__.'/../app/Http/Controllers/helper.php';
 
 Route::group(['middleware'=> [] ], function (){
 
-    Route::get('/', function () {
+    Route::get('/', function (Request $request) {
         return view('index');
     });
     
@@ -63,7 +68,16 @@ Route::group(['middleware'=> [] ], function (){
     });
 
 
+    Route::get('/download/{track_id}', function ($track_id) {
+        return view('downloaditem', compact('track_id') );
+    });
+
+    Route::get('/down/{scart_id}', [DownloadController::class, 'makeDownload']);
+
+
+
     Route::get('/send_mail', [PaypalController::class, 'sendMail']);
+    Route::get('/download/{scart_id}', [DownloadController::class, 'makeDownload']);
 
     Route::group(['prefix'=>'control', 'as'=>'admin.', 'middleware'=> ['auth'] ], function (){
         Route::get('/', function () { return view('admin.index'); });

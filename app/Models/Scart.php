@@ -27,4 +27,5 @@ class Scart extends Model
     {
         return $this->belongsTo(Billing::class, 'billing_id');
     }
+
 }

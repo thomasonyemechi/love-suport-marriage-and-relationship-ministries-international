@@ -9,20 +9,22 @@
 
 
     <link href="{{ asset('assets/vendor/lightgallery/css/lightgallery.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/vendor/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/vendor/animate/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/animate/animate.css') }}" rel="stylesheet">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;family=Sarabun:wght@100;200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;family=Sarabun:wght@100;200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
 
-	<!-- Custom Stylesheet -->
+    <!-- Custom Stylesheet -->
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/template.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/vendor/rangeslider/rangeslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/rangeslider/rangeslider.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/switcher/switcher.css') }}">
-	<link rel="stylesheet" class="skin" href="{{ asset('assets/css/skin/skin-3.css') }}">
+    <link rel="stylesheet" class="skin" href="{{ asset('assets/css/skin/skin-3.css') }}">
 
     <script src="{{ asset('assets/js/general.js') }}"></script>
 
@@ -40,9 +42,9 @@
             object-fit: cover;
         }
 
-        .video-title{
-            text-overflow:ellipsis;
-            overflow:hidden;
+        .video-title {
+            text-overflow: ellipsis;
+            overflow: hidden;
             display: -webkit-box !important;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -51,8 +53,8 @@
 
 
         .four-lines {
-            text-overflow:ellipsis;
-            overflow:hidden;
+            text-overflow: ellipsis;
+            overflow: hidden;
             display: -webkit-box !important;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
@@ -61,8 +63,8 @@
 
 
         .two-lines {
-            text-overflow:ellipsis;
-            overflow:hidden;
+            text-overflow: ellipsis;
+            overflow: hidden;
             display: -webkit-box !important;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -98,7 +100,7 @@
 
 
     {{-- Javascripts Here .... --}}
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS --> 
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS -->
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
     <script src="{{ asset('assets/vendor/wow/wow.js') }}"></script><!-- WOW JS -->
     <script src="{{ asset('assets/vendor/rangeslider/rangeslider.js') }}"></script><!-- RANGESLIDER -->
@@ -115,37 +117,54 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script><!-- CUSTOM JS -->
 
     <script>
-        $(function () {
+        $(function() {
             $('.dzSubscribe').on('submit', function(e) {
                 e.preventDefault();
                 form = $(this);
                 email = $(form).find('input').val();
                 btn = $(form).find('button');
                 er = $(form).find('.dzSubscribeMsg')
-                if(!validateEmail(email)){
-                    er.html('Please enter a valid email address'); er.addClass('text-danger')
-                    setTimeout(() => { er.html(``) }, 1500); return;
+                if (!validateEmail(email)) {
+                    er.html('Please enter a valid email address');
+                    er.addClass('text-danger')
+                    setTimeout(() => {
+                        er.html(``)
+                    }, 1500);
+                    return;
                 }
 
                 $.ajax({
                     method: 'POST',
                     url: '/newsletter/add',
-                    data: {  "_token" : `{{ csrf_token() }}`, email: email },
-                    beforeSend:() => {
+                    data: {
+                        "_token": `{{ csrf_token() }}`,
+                        email: email
+                    },
+                    beforeSend: () => {
                         btn.attr('disabled', 'disabled')
-                        btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
+                        btn.html(
+                            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+                            )
                     }
                 }).done(function(res) {
                     btn.removeAttr('disabled')
                     btn.html('<i class="fas fa-paper-plane"></i>')
-                    er.html(res.message); er.removeClass('text-danger'); er.addClass('text-success')
-                    setTimeout(() => { er.html(``) }, 1500);
+                    er.html(res.message);
+                    er.removeClass('text-danger');
+                    er.addClass('text-success')
+                    setTimeout(() => {
+                        er.html(``)
+                    }, 1500);
                 }).fail(function(res) {
                     btn.removeAttr('disabled')
                     btn.html('<i class="fas fa-paper-plane"></i>')
 
-                    er.html(concatError(res.responseJSON)); er.removeClass('text-success'); er.addClass('text-danger')
-                    setTimeout(() => { er.html(``) }, 1500);
+                    er.html(concatError(res.responseJSON));
+                    er.removeClass('text-success');
+                    er.addClass('text-danger')
+                    setTimeout(() => {
+                        er.html(``)
+                    }, 1500);
                 })
 
             })
@@ -154,15 +173,17 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/62d56581b0d10b6f3e7ce9b7/1g88p9190';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-            })();
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6349d21854f06e12d89a402c/1gfc5pd4l';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
     <!--End of Tawk.to Script-->
 

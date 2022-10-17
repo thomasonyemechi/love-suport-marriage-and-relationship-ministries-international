@@ -18,6 +18,11 @@ class Cart extends Model
         return $this->belongsTo(Store::class, 'item_id');
     }
 
+    function product()
+    {
+        return $this->belongsTo(Store::class, 'item_id');
+    }
+
     function sum()
     {
         return $this->belongsTo(Scart::class, 'sum_id');
